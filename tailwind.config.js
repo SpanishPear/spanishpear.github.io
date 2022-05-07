@@ -16,7 +16,7 @@ module.exports = {
                 'th-secondary': '#f0f0f0',
                 'th-highlighting':'#34d399',
                 'th-tabclicked': '#d19292',
-                'landing-navbar': 'rgba(15, 23, 42, 0.85)',
+                'landing-navbar': 'pink',
                 'landing-container-end': '#0b111f',
             }
         },

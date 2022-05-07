@@ -1,6 +1,6 @@
 use yew::prelude::*;
 
-use crate::blogs::posts;
+use crate::blogs::POSTS;
 
 
 #[function_component(RecentPosts)]
@@ -8,7 +8,7 @@ pub fn recent_posts() -> Html {
 
     html! {
         
-        posts.iter().enumerate().map(|(i, post)| {
+        POSTS.iter().enumerate().map(|(i, post)| {
             if i < 3 {
                 html! {
                     <div class="post-preview">
@@ -20,7 +20,7 @@ pub fn recent_posts() -> Html {
                                 { post.subtitle.clone() }
                             </h3>
                         </a>
-                        <p class="post-meta">Posted by
+                        <p class="post-meta">{"Posted by"}
                             <a href="#">{ post.author.clone() }</a>
                             { format!(" on {}", post.date) }
                         </p>
@@ -29,7 +29,7 @@ pub fn recent_posts() -> Html {
             } else {
                 html! {}
             }
-        })
+        }).collect::<Html>()
 
     }
 

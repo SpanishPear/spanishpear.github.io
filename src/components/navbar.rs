@@ -52,8 +52,8 @@ pub fn navbar() -> Html {
         <nav class="dark:bg-landing-navbar bg-white border-gray-200 px-2 sm:px-4 py-2.5">
           <div class="container flex flex-wrap justify-between items-center mx-auto">
             <a href="javascript:;" class="flex items-center"
-                onclick={Callback::once(move |_| {
-                    history.push(Route::Home);})
+                onclick={
+                    Callback::once(move |_| history.push(Route::Home))
                 }
             >
                 <img loading="lazy" src="/assets/logo.svg" class="mr-3 h-9 sm:h-12" width="77" height="67" alt="SpanishPear Icon" />

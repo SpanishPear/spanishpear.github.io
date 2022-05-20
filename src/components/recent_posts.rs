@@ -1,8 +1,5 @@
 use yew::prelude::*;
-use yew_router::prelude::*;
-
-use crate::Route;
-use crate::{blogs::POSTS, components::link_button::LinkButton, components::post_card::PostCard};
+use crate::{Route, blogs::POSTS, components::link_button::LinkButton, components::post_card::PostCard};
 
 #[function_component(RecentPosts)]
 pub fn recent_posts() -> Html {

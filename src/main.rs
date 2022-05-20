@@ -27,11 +27,11 @@ pub enum Route {
     Contact,
     #[at("/blog")]
     Blog,
-    #[at("/blog/{id}")]
+    #[at("/blog/:id")]
     BlogPost { id: String },
     #[at("/projects")]
     Projects,
-    #[at("/projects/{id}")]
+    #[at("/projects/:id")]
     Project { id: String },
     #[not_found]
     #[at("/404")]
@@ -43,14 +43,37 @@ fn main() {
     yew::start_app::<App>();
 }
 
-fn switch(routes: &Route) -> Html {
-    match routes {
+fn switch(route: &Route) -> Html {
+    match route {
         Route::Home => html! { <pages::home::Home /> },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
         Route::About => html! { <h1>{ "About" }</h1> },
         Route::Contact => html! { <h1>{ "Contact" }</h1> },
         Route::Blog => html! { <h1>{ "Blog" }</h1> },
-        Route::BlogPost { id } => html! { <h1>{ format!("Blog Post {}", id) }</h1> },
+        Route::BlogPost { id } => {
+            
+            let post = crate::blogs::POSTS.iter().find(|post| post.slug == id).unwrap_or({
+                &&crate::blogs::Post {
+                    author: "",
+                    title: "404",
+                    subtitle: "",
+                    slug: "404",
+                    content: || {
+                        html! {
+                            <div>
+                                <h1>{ "404" }</h1>
+                                <p>{ "Post not found" }</p>
+                            </div>
+                        }
+                    },
+                    date: "",
+                    thumbnail_path: "",
+                }
+            });
+
+            (post.content)()
+            
+        },
         Route::Projects => html! { <h1>{ "Projects" }</h1> },
         Route::Project { id } => html! { <h1>{ format!("Project {}", id) }</h1> },
     }

@@ -5,7 +5,6 @@ use crate::{components::link_button::LinkButton, Route};
 
 #[function_component(Headline)]
 pub fn headline() -> Html {
-    let history = use_history().expect("Browser history should exist");
     let heading_classes = vec![
         "text-2xl",
         "font-bold",
@@ -45,7 +44,7 @@ pub fn headline() -> Html {
                 "
                 I'm a software engineer based in Sydney, Australia.
                 I love learning new things, reading, music,  
-                not finishing new side projects, and the colour purple (could you tell?).
+                not finishing new side projects, and the colours pink/purple (could you tell?).
                 "}
             </p>
             <p class={classes!(text_classes)}>    
@@ -57,9 +56,7 @@ pub fn headline() -> Html {
             </p>
 
             <LinkButton 
-                onclick={ 
-                    Callback::from(move |_| history.push(Route::About))
-                }    
+                to={ Route::About }    
                 label={"Learn more"}
             />
             </div>

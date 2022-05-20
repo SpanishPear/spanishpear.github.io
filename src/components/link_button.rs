@@ -1,10 +1,11 @@
 use yew::prelude::*;
-
+use yew_router::components::Link;
+use crate::Route;
 
 #[derive(Clone, Debug, PartialEq, Properties)]
 pub struct ButtonProps {
     pub label: String,
-    pub onclick: yew::Callback<yew::MouseEvent>,
+    pub to: Route, 
 }
 
 #[function_component(LinkButton)]
@@ -33,11 +34,11 @@ pub fn link_button(props: &ButtonProps) -> Html {
     ];
     
     html! {
-        <a href="javascript:;" 
-            class={classes!(button_classes)} 
-            onclick={props.onclick.clone()}
+        <Link<Route>
+            classes={classes!(button_classes)} 
+            to={props.to.clone()}
         > 
-            {props.label.clone()}
-        </a>
+            { props.label.clone() }
+        </Link<Route>>
     }
 }

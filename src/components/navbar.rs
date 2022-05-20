@@ -86,22 +86,15 @@ pub fn navbar() -> Html {
 #[function_component(NavItemComponent)]
 fn navbar_item(NavItem { link, text }: &NavItem) -> Html {
     let route: Option<Route> = use_route();
-    let history = use_history().unwrap();
-
-
-    let onclick = Callback::once(cloned_closure!(link; |_unused| {
-        history.push(link);
-    }));
 
     html! {
         <li>
-          <a href="javascript:;" class={
+          <Link<Route> to={link.clone()} classes={
               classes!(NAV_CLASSES, route.map(|r| if r == *link { "underline" } else { "" }))
             } 
-            {onclick}
           >
               {text}
-          </a>
+          </Link<Route>>
         </li>
     }
 }

@@ -48,7 +48,7 @@ pub fn headline() -> Html {
             </p>
             <p class={classes!(text_classes)}>    
                 {"
-                I'm currently working as a frontend engineer at"} 
+                I'm currently working as a frontend engineer at "} 
                 <a class="text-pink-500 background-transparent font-bold uppercase p1-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="https://www.atlassian.com/">
                     {"Atlassian"}
                 </a>

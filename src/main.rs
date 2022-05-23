@@ -48,7 +48,7 @@ fn switch(route: &Route) -> Html {
         Route::Contact => html! { <pages::construction::Construction /> },
         Route::Blog => html! { <pages::construction::Construction /> },
         Route::BlogPost { id } => {
-            let post = crate::blogs::POSTS
+            let _post = crate::blogs::POSTS
                 .iter()
                 .find(|post| post.slug == id)
                 .unwrap_or({

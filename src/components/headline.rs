@@ -53,7 +53,7 @@ pub fn headline() -> Html {
                     {"Atlassian"}
                 </a>
                 {", and outside
-                of that - I help teach, run courses and write software for 
+                of that - I help teach, run courses and write software for the
                 "}
                 <br />
                 <a class="text-pink-500 background-transparent font-bold uppercase px-1 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/">{"UNSW School of Computer Science."}</a>

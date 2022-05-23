@@ -1,6 +1,6 @@
 {
     "scripts": {
-      "build_css": "npx tailwindcss -i ./css/tailwind/tailwind_base.css -o ./css/tailwind/dist/tailwind.css && npx webpack"
+      "build_css": "NODE_ENV=production npx tailwindcss -c ./tailwind.config.js -o dist/assets/tailwind.css --minify && npx webpack"
     },
     "devDependencies": {
       "css-loader": "^6.7.0",

@@ -1,4 +1,4 @@
-use crate::{Route, Theme};
+use crate::{Route};
 use yew::prelude::*;
 use yew_router::{prelude::*, hooks::use_route};
 

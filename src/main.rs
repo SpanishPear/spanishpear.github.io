@@ -1,21 +1,18 @@
-use yew_router::prelude::*;
 use yew::prelude::*;
-
+use yew_router::prelude::*;
 
 #[macro_use]
 pub mod utils;
+pub mod blogs;
 pub mod components;
 pub mod pages;
-pub mod blogs;
 
-
-use components::{background::Background, navbar::Navbar};
+use components::background::Background;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Theme {
     dark: bool,
 }
-
 
 #[derive(Debug, Clone, Routable, PartialEq)]
 pub enum Route {
@@ -46,50 +43,47 @@ fn main() {
 fn switch(route: &Route) -> Html {
     match route {
         Route::Home => html! { <pages::home::Home /> },
-        Route::NotFound => html! { <h1>{ "404" }</h1> },
-        Route::About => html! { <h1>{ "About" }</h1> },
-        Route::Contact => html! { <h1>{ "Contact" }</h1> },
-        Route::Blog => html! { <h1>{ "Blog" }</h1> },
+        Route::NotFound => html! { <pages::not_found::NotFound /> },
+        Route::About => html! { <pages::construction::Construction /> },
+        Route::Contact => html! { <pages::construction::Construction /> },
+        Route::Blog => html! { <pages::construction::Construction /> },
         Route::BlogPost { id } => {
-            
-            let post = crate::blogs::POSTS.iter().find(|post| post.slug == id).unwrap_or({
-                &&crate::blogs::Post {
-                    author: "",
-                    title: "404",
-                    subtitle: "",
-                    slug: "404",
-                    content: || {
-                        html! {
-                            <div>
-                                <h1>{ "404" }</h1>
-                                <p>{ "Post not found" }</p>
-                            </div>
-                        }
-                    },
-                    date: "",
-                    thumbnail_path: "",
-                }
-            });
+            let post = crate::blogs::POSTS
+                .iter()
+                .find(|post| post.slug == id)
+                .unwrap_or({
+                    &&crate::blogs::Post {
+                        author: "",
+                        title: "404",
+                        subtitle: "",
+                        slug: "404",
+                        content: || {
+                            html! {
+                                <div>
+                                    <h1>{ "404" }</h1>
+                                    <p>{ "Post not found" }</p>
+                                </div>
+                            }
+                        },
+                        date: "",
+                        thumbnail_path: "",
+                    }
+                });
 
-            (post.content)()
-            
-        },
-        Route::Projects => html! { <h1>{ "Projects" }</h1> },
-        Route::Project { id } => html! { <h1>{ format!("Project {}", id) }</h1> },
+            html! { <pages::construction::Construction /> }
+        }
+        Route::Projects => html! { <pages::construction::Construction /> },
+        Route::Project { id: _} => html! { <pages::construction::Construction /> },
     }
 }
 
 #[function_component(App)]
 fn app() -> Html {
-    
     let theme = use_state(|| Theme { dark: false });
-    
-    
     html! {
         <ContextProvider<Theme> context={(*theme).clone()}>
             <BrowserRouter>
                 <Background>
-                    <Navbar />
                     <Switch<Route> render={Switch::render(switch)} />
                 </Background>
             </BrowserRouter>

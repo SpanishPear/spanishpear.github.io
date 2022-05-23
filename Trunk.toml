@@ -14,3 +14,15 @@ filehash = true
 stage = "build"
 command = "sh"
 command_arguments = ["-c", "mkdir -p $TRUNK_STAGING_DIR/assets; if [ $TRUNK_PROFILE = 'release' ]; then NODE_ENV=production tailwindcss -c ./tailwind.config.js -o $TRUNK_STAGING_DIR/assets/tailwind.css --minify; else tailwindcss -c ./tailwind.config.js -o $TRUNK_STAGING_DIR/assets/tailwind.css; fi"]
+
+[clean]
+dist = "dist"
+
+[[hooks]]
+stage = "pre_build"
+command = "sh"
+# run tailwind build with webpack
+command_arguments = [
+    "-c",
+    "[ ! -d \"./node_modules\" ] && npm i || :; npm run build_css",
+]

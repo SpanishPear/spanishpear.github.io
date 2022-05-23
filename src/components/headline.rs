@@ -49,14 +49,14 @@ pub fn headline() -> Html {
             <p class={classes!(text_classes)}>    
                 {"
                 I'm currently working as a frontend engineer at"} 
-                <a class="text-pink-500 background-transparent font-bold uppercase px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="https://www.atlassian.com/">
+                <a class="text-pink-500 background-transparent font-bold uppercase p1-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="https://www.atlassian.com/">
                     {"Atlassian"}
                 </a>
                 {", and outside
                 of that - I help teach, run courses and write software for 
                 "}
                 <br />
-                <a class="text-pink-500 background-transparent font-bold uppercase px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/">{"UNSW School of Computer Science."}</a>
+                <a class="text-pink-500 background-transparent font-bold uppercase px-1 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/">{"UNSW School of Computer Science."}</a>
             </p>
 
             <LinkButton 

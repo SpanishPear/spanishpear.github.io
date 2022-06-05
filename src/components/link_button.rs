@@ -6,6 +6,7 @@ use crate::Route;
 pub struct ButtonProps {
     pub label: String,
     pub to: Route, 
+    pub classes: Option<String>,
 }
 
 #[function_component(LinkButton)]
@@ -32,10 +33,11 @@ pub fn link_button(props: &ButtonProps) -> Html {
         "duration-100",
         "hover:translate-x-6" 
     ];
-    
+   
+    let classes = props.classes.clone();
     html! {
         <Link<Route>
-            classes={classes!(button_classes)} 
+            classes={classes!(classes.unwrap_or_else(|| "".to_string()), button_classes)} 
             to={props.to.clone()}
         > 
             { props.label.clone() }

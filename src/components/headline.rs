@@ -19,9 +19,11 @@ pub fn headline() -> Html {
         "items-center",
         "justify-center",
         "flex-col",
-        "h-full",
+        "h-4/6",
         "w-full",
-        "py-48",
+        "py-38",
+        "xs:px-2",
+        "md:px-0",
         "bg-gradient-to-b",
         "dark:from-landing-navbar",
         "dark:to-landing-container-end",
@@ -34,7 +36,7 @@ pub fn headline() -> Html {
 
     html! {
         <div class={classes!(container_classes)}>
-            <div class="sm:max-w-l text-center max-w-xl flex items-center justify-center flex-col">
+            <div class="sm:max-w-l xs:px-2 text-center max-w-xl flex items-center justify-center flex-col">
             <h1 class={classes!(heading_classes)}>
                 {"Hello! I'm Shrey :)"}
             </h1>

@@ -48,7 +48,7 @@ fn switch(route: &Route) -> Html {
         Route::Contact => html! { <pages::construction::Construction /> },
         Route::Blog => html! { <pages::construction::Construction /> },
         Route::BlogPost { id } => {
-            let _post = crate::blogs::POSTS
+            let post = **crate::blogs::POSTS
                 .iter()
                 .find(|post| post.slug == id)
                 .unwrap_or({
@@ -57,20 +57,13 @@ fn switch(route: &Route) -> Html {
                         title: "404",
                         subtitle: "",
                         slug: "404",
-                        content: || {
-                            html! {
-                                <div>
-                                    <h1>{ "404" }</h1>
-                                    <p>{ "Post not found" }</p>
-                                </div>
-                            }
-                        },
+                        content: "",
                         date: "",
                         thumbnail_path: "",
                     }
                 });
 
-            html! { <pages::construction::Construction /> }
+            html! { <pages::post::PostContainer {post} /> }
         }
         Route::Projects => html! { <pages::construction::Construction /> },
         Route::Project { id: _} => html! { <pages::construction::Construction /> },

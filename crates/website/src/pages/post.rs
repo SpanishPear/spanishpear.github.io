@@ -9,13 +9,13 @@ pub struct PostProps {
 #[function_component(PostContainer)]
 pub fn post(props: &PostProps) -> Html {
     let markdown = use_state(|| "Loading...".to_string());
+    let content = props.post.content.clone();
     { 
-    
         let markdown = markdown.clone();
         use_effect_with_deps(move |_| {
             let markdown = markdown.clone();
             wasm_bindgen_futures::spawn_local(async move {
-                let fetched_markdown = fetch::fetch_markdown_from_url(&props.post.content).await;
+                let fetched_markdown = fetch::fetch_markdown_from_url(content).await;
                 match fetched_markdown {
                     Ok(fetched) => markdown.set(fetched),
                     Err(err) => {
@@ -29,6 +29,6 @@ pub fn post(props: &PostProps) -> Html {
         }, ());
     }
     html! {
-        <p> {*markdown} </p>
+        <p> {&*markdown} </p>
     }
 }

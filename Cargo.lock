@@ -495,7 +495,7 @@ dependencies = [
 
 [[package]]
 name = "website"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "gloo-utils",
  "log",
@@ -556,6 +556,10 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "yew-markdown"
+version = "0.0.0"
 
 [[package]]
 name = "yew-router"

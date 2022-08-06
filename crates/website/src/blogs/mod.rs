@@ -1,7 +1,7 @@
 use yew::prelude::*;
 pub mod prettier_terminal;
 
-const MARKDOWN_URL: &str = "https://raw.githubusercontent.com/yewstack/yew/master/README.md";
+const MARKDOWN_URL: &str = "https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/making_a_prettier_terminal.md";
 
 #[derive(Clone, Debug, Copy,  PartialEq)]
 pub struct Post {

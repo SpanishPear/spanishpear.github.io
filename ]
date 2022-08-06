@@ -20,15 +20,17 @@ pub fn post(props: &PostProps) -> Html {
                     Ok(fetched) => markdown.set(fetched),
                     Err(err) => {
                         log::error!("{:?}", err);
+                        "Error fetching markdown".to_string()
                     }
                 };
+                ()
             });
 
             // return the teardown
             || ()
-        }, ());
+    }, ());
     }
     html! {
-        <p> {*markdown} </p>
+        <p> {markdown} </p>
     }
 }

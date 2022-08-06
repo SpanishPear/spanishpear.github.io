@@ -3,7 +3,7 @@ use yew_router::prelude::*;
 
 #[macro_use]
 pub mod macros;
-pub mod utils;
+pub mod fetch;
 pub mod blogs;
 pub mod components;
 pub mod pages;

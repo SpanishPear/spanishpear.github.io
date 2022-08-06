@@ -16,3 +16,4 @@ web-sys = { version = "0.3.59", features = ["Response", "Request", "Window", "Re
 yew = "0.19.3"
 yew-hooks = "0.1.56"
 yew-router = "0.16"
+yew-markdown = { path = "../yew-markdown" }

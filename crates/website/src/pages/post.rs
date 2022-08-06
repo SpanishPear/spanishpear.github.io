@@ -10,6 +10,7 @@ pub struct PostProps {
 pub fn post(props: &PostProps) -> Html {
     let markdown = use_state(|| "Loading...".to_string());
     let content = props.post.content.clone();
+    // async load the content
     { 
         let markdown = markdown.clone();
         use_effect_with_deps(move |_| {
@@ -29,6 +30,6 @@ pub fn post(props: &PostProps) -> Html {
         }, ());
     }
     html! {
-        <p> {&*markdown} </p>
+        <p> {yew_markdown::render_markdown(&*markdown)} </p>
     }
 }

@@ -79,7 +79,6 @@ fn scroll_to_top() -> Html {
         None => "".to_string(),
     };
     {
-        let pathname = pathname.clone();
         let pathname2 = pathname.clone();
         use_effect_with_deps(move |_|{
             wasm_bindgen_futures::spawn_local(async move {

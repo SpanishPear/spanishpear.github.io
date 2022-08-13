@@ -6,9 +6,16 @@
       <link rel="stylesheet" href="/assets/tailwind.css"/>
       <link data-trunk rel="copy-dir" href="src/assets"/>
       <link data-trunk rel="copy-file" href="./static/404.html"/>
+
+      <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/base16/gruvbox-dark-pale.css">
+      <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script>
       <script>
         /*to prevent Firefox FOUC, this must be here*/
         let FF_FOUC_FIX;
+        function highlight() {
+          hljs.highlightAll();
+        }
       </script>
     </head>
     <body>

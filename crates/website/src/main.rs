@@ -1,20 +1,27 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
+use components::background::Background;
+use wasm_bindgen::prelude::wasm_bindgen;
 
 #[macro_use]
-pub mod utils;
+pub mod macros;
+pub mod fetch;
 pub mod blogs;
 pub mod components;
 pub mod pages;
 
-use components::background::Background;
 
-#[derive(Debug, Clone, PartialEq)]
+#[wasm_bindgen]
+extern "C" {
+    pub fn highlight();
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Theme {
     dark: bool,
 }
 
-#[derive(Debug, Clone, Routable, PartialEq)]
+#[derive(Debug, Clone, Routable, PartialEq, Eq)]
 pub enum Route {
     #[at("/")]
     Home,
@@ -48,7 +55,7 @@ fn switch(route: &Route) -> Html {
         Route::Contact => html! { <pages::construction::Construction /> },
         Route::Blog => html! { <pages::construction::Construction /> },
         Route::BlogPost { id } => {
-            let _post = crate::blogs::POSTS
+            let post = **crate::blogs::POSTS
                 .iter()
                 .find(|post| post.slug == id)
                 .unwrap_or({
@@ -57,26 +64,40 @@ fn switch(route: &Route) -> Html {
                         title: "404",
                         subtitle: "",
                         slug: "404",
-                        content: || {
-                            html! {
-                                <div>
-                                    <h1>{ "404" }</h1>
-                                    <p>{ "Post not found" }</p>
-                                </div>
-                            }
-                        },
+                        content: "",
                         date: "",
                         thumbnail_path: "",
                     }
                 });
 
-            html! { <pages::construction::Construction /> }
+            html! { <pages::post::PostContainer {post} /> }
         }
         Route::Projects => html! { <pages::construction::Construction /> },
         Route::Project { id: _} => html! { <pages::construction::Construction /> },
     }
 }
-
+#[function_component(ScrollToTop)]
+fn scroll_to_top() -> Html {
+        
+    let location = use_location();
+    let pathname = match location {
+        Some(AnyLocation::Browser(location)) => location.pathname(),
+        None => "".to_string(),
+    };
+    {
+        let pathname2 = pathname.clone();
+        use_effect_with_deps(move |_|{
+            wasm_bindgen_futures::spawn_local(async move {
+                if pathname != "/" {
+                    web_sys::window().unwrap().scroll_to_with_scroll_to_options(web_sys::ScrollToOptions::new().top(0.0));
+                }
+            });
+            || ()
+        }, pathname2);
+    }
+    html! {
+    }
+}
 #[function_component(App)]
 fn app() -> Html {
     let theme = use_state(|| Theme { dark: false });
@@ -84,6 +105,7 @@ fn app() -> Html {
         <ContextProvider<Theme> context={(*theme).clone()}>
             <BrowserRouter>
                 <Background>
+                    <ScrollToTop />
                     <Switch<Route> render={Switch::render(switch)} />
                 </Background>
             </BrowserRouter>

@@ -24,6 +24,7 @@ jobs:
 
     # build css and rust
     - name: run trunk
+      working-directory: ./crates/website/
       run: trunk build --release
 
     # deploy for github.io
@@ -32,5 +33,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
-        publish_dir: dist
+        publish_dir: ./crates/website/dist
         cname: spanishpe.ar

@@ -1,8 +1,0 @@
-{
-    "scripts": {
-      "build_css": "NODE_ENV=production npx tailwindcss -c ./tailwind.config.js -o dist/assets/tailwind.css --minify"
-    },
-    "devDependencies": {
-      "tailwindcss": "^3.0.23"
-    }
-}

@@ -6,7 +6,7 @@ From
 
 to
 
-![Image](https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/assets/images/pretty-terminal.png")
+![Image](https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/assets/images/pretty-terminal.png)
 
 ## Assumptions
 
@@ -32,7 +32,7 @@ source ~/.bashrc
 
 in order to see it take effect.
 
-![Image](https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/assets/images/1511-colours.png")
+![Image](https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/assets/images/1511-colours.png)
 
 ## Powerlevel10k
 
@@ -40,7 +40,7 @@ in order to see it take effect.
 
 Powerlevel10k is one of the most popular plugin frameworks for Zsh. It comes with many features and extensions, and allows you to customise nearly everything to your liking. It brags an "out of box" experience, meaning that theres not much setup we have to do get it working :D
 
-![Image](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png")
+![Image](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png)
 
 ### What is zsh?
 
@@ -218,7 +218,7 @@ source ~/.zshrc
 ### exa
 
 Exa is a "modern replacement for _ls_
-![Image](https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/assets/images/exa.png")
+![Image](https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/assets/images/exa.png)
 
 simply run
 

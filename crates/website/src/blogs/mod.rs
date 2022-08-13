@@ -16,7 +16,7 @@ pub const POSTS: &[&Post] = &[
         title: "A prettier terminal",
         subtitle: "maybe you'll actually enjoy using it",
         slug: "prettier-terminal",
-        content: "https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/making_a_prettier_terminal.md",
+        content: "https://raw.githubusercontent.com/SpanishPear/spanishpear.github.io/main/posts/making_a_prettier_terminal.md",
         date: "2022-05-07",
         thumbnail_path: "/assets/pretty-terminal.png",
     }

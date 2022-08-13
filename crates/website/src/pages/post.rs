@@ -1,6 +1,5 @@
 use crate::{fetch, blogs::Post};
 use yew::prelude::*;
-use yew_hooks::prelude::*;
 #[derive(Clone, Debug, PartialEq, Properties)]
 pub struct PostProps {
     pub post: Post,
@@ -9,7 +8,7 @@ pub struct PostProps {
 #[function_component(PostContainer)]
 pub fn post(props: &PostProps) -> Html {
     let markdown = use_state(|| "Loading...".to_string());
-    let content = props.post.content.clone();
+    let content = props.post.content;
     // async load the content
     { 
         let markdown = markdown.clone();
@@ -30,6 +29,10 @@ pub fn post(props: &PostProps) -> Html {
         }, ());
     }
     html! {
-        <p> {yew_markdown::render_markdown(&*markdown)} </p>
+        <p class="flex justify-center content-center"> 
+            <div class="w-9/12"> 
+            {yew_markdown::render_markdown((*markdown).as_str())}
+            </div>
+        </p>
     }
 }

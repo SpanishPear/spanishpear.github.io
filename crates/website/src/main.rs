@@ -70,7 +70,29 @@ fn switch(route: &Route) -> Html {
         Route::Project { id: _} => html! { <pages::construction::Construction /> },
     }
 }
-
+#[function_component(ScrollToTop)]
+fn scroll_to_top() -> Html {
+        
+    let location = use_location();
+    let pathname = match location {
+        Some(AnyLocation::Browser(location)) => location.pathname(),
+        None => "".to_string(),
+    };
+    {
+        let pathname = pathname.clone();
+        let pathname2 = pathname.clone();
+        use_effect_with_deps(move |_|{
+            wasm_bindgen_futures::spawn_local(async move {
+                if pathname != "/" {
+                    web_sys::window().unwrap().scroll_to_with_scroll_to_options(web_sys::ScrollToOptions::new().top(0.0));
+                }
+            });
+            || ()
+        }, pathname2);
+    }
+    html! {
+    }
+}
 #[function_component(App)]
 fn app() -> Html {
     let theme = use_state(|| Theme { dark: false });
@@ -78,6 +100,7 @@ fn app() -> Html {
         <ContextProvider<Theme> context={(*theme).clone()}>
             <BrowserRouter>
                 <Background>
+                    <ScrollToTop />
                     <Switch<Route> render={Switch::render(switch)} />
                 </Background>
             </BrowserRouter>

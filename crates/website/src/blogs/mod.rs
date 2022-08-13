@@ -1,9 +1,5 @@
-use yew::prelude::*;
-pub mod prettier_terminal;
 
-const MARKDOWN_URL: &str = "https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/making_a_prettier_terminal.md";
-
-#[derive(Clone, Debug, Copy,  PartialEq)]
+#[derive(Clone, Debug, Copy,  PartialEq, Eq)]
 pub struct Post {
     pub author: &'static str,
     pub title: &'static str,
@@ -20,7 +16,7 @@ pub const POSTS: &[&Post] = &[
         title: "A prettier terminal",
         subtitle: "maybe you'll actually enjoy using it",
         slug: "prettier-terminal",
-        content: MARKDOWN_URL,
+        content: "https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/making_a_prettier_terminal.md",
         date: "2022-05-07",
         thumbnail_path: "/assets/pretty-terminal.png",
     }

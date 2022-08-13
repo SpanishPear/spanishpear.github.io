@@ -108,7 +108,11 @@ pub fn render_markdown(src: &str) -> Html {
 fn make_tag(t: Tag) -> VTag {
     match t {
         Tag::Paragraph => VTag::new("p"),
-        Tag::Heading(n, ..) => VTag::new(n.to_string()),
+        Tag::Heading(n, ..) => {
+            let mut el = VTag::new(n.to_string());
+            el.add_attribute("class", "font-medium leading-tight text-5xl mt-0 mb-2 text-blue-600");
+            el
+        },
         Tag::BlockQuote => {
             let mut el = VTag::new("blockquote");
             el.add_attribute("class", "blockquote");

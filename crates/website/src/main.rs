@@ -10,12 +10,12 @@ pub mod pages;
 
 use components::background::Background;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Theme {
     dark: bool,
 }
 
-#[derive(Debug, Clone, Routable, PartialEq)]
+#[derive(Debug, Clone, Routable, PartialEq, Eq)]
 pub enum Route {
     #[at("/")]
     Home,

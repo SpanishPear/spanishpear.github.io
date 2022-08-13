@@ -1,5 +1,7 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
+use components::background::Background;
+use wasm_bindgen::prelude::wasm_bindgen;
 
 #[macro_use]
 pub mod macros;
@@ -8,7 +10,11 @@ pub mod blogs;
 pub mod components;
 pub mod pages;
 
-use components::background::Background;
+
+#[wasm_bindgen]
+extern "C" {
+    pub fn highlight();
+}
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Theme {

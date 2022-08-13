@@ -127,10 +127,11 @@ fn make_tag(t: Tag) -> VTag {
                 // actually provide the highlighting support by locating the
                 // language classes and applying dom transforms on their contents.
                 match lang.as_ref() {
-                    "html" => el.add_attribute("class", "html-language"),
-                    "rust" => el.add_attribute("class", "rust-language"),
-                    "java" => el.add_attribute("class", "java-language"),
-                    "c" => el.add_attribute("class", "c-language"),
+                    "html" => el.add_attribute("class", "language-html"),
+                    "rust" => el.add_attribute("class", "language-rust"),
+                    "java" => el.add_attribute("class", "language-java"),
+                    "c" => el.add_attribute("class", "language-c"),
+                    "bash" => el.add_attribute("class", "language-bash"),
                     _ => {} // Add your own language highlighting support
                 };
             }

@@ -27,6 +27,11 @@ pub fn post(props: &PostProps) -> Html {
             // return the teardown
             || ()
         }, ());
+        use_effect(move || {
+            crate::highlight();
+            || ()
+        })
+
     }
     html! {
         <p class="flex justify-center content-center"> 

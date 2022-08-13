@@ -140,11 +140,10 @@ Go through and answer the questions, formatting your terminal to your liking.
 
 Congratulations you now have a pretty terminal!
 
-## Further extensions + customisation
 
-### Plugins!
+# Further extensions: plugins!
 
-#### zsh-syntax-highlighting
+## zsh-syntax-highlighting
 
 Clone the syntax highlighter
 
@@ -166,7 +165,7 @@ and then running
 source ~/.zshrc
 ```
 
-#### zsh-autosuggestions
+## zsh-autosuggestions
 
 Suggesting commands as you type based on history and completions!!
 As you type commands, you will see a completion offered after the cursor in a muted gray color.
@@ -193,7 +192,7 @@ and then running
 source ~/.zshrc
 ```
 
-#### zsh-z
+## Zsh-z
 
 ZSH-z is a command line tool that allows you to jump quickly to directories that you have visited frequently in the past, or recently -- but most often a combination of the two (a concept known as "frecency"). It works by keeping track of when you go to directories and how much time you spend in them.
 
@@ -215,7 +214,7 @@ and updatee
 source ~/.zshrc
 ```
 
-### exa
+## Exa
 
 Exa is a "modern replacement for _ls_
 ![Image](https://raw.githubusercontent.com/SpanishPear/portfolio/main/src/assets/blogs/assets/images/exa.png)
@@ -235,7 +234,7 @@ I like to use the alias
 alias ll="exa -l"
 ```
 
-in my `~/.zshrc`
+in my zshrc file.
 
 # Conclusion
 
@@ -243,32 +242,12 @@ You now have a pretty terminal, and theres so much more you can do!
 
 Checkout the following extra resources
 
-# Extras + Notes
+# DLC 
 
-### running on CSE
-
-#### installing fonts
+#### Installing fonts
 
 Download the four font files on the powerlevel10k homepage, then inside vlab, create a folder in your home directory (~) `mkdir ~/.fonts` and move all the font files there. 
 Open xterm and go edit->preferences->appearances  and select the installed font. 
-#### fetching gitstatusd
-
-Every time you login (/open) a cse terminal - you might see "fetching gitstatusd..." for a few seconds.
-While this probably wouldnt annoy the average person - it absolutely infuriates me (and a few others)/
-
-[@insou22](https://github.com/insou22) has kindly provided a script to fix this issue, which you can run using
-
-```bash
-curl https://gist.insou.dev/gitstatus | sh
-```
-
-followed by
-
-```bash
-source ~/.bashrc
-```
-
-This will download `gitstatusd` and ensure that every time we open zsh - the computer knows where to find it, wheras whats happenning currently is that the cache is wiped every time you log off which is #notgood
 
 ### Further Customisation:
 

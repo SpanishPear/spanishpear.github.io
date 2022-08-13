@@ -34,8 +34,8 @@ pub fn post(props: &PostProps) -> Html {
 
     }
     html! {
-        <p class="flex justify-center content-center"> 
-            <div class="w-9/12"> 
+        <p class="flex justify-center content-center py-4"> 
+            <div class="w-9/12 px-2 bg-[#D682F4]"> 
             {yew_markdown::render_markdown((*markdown).as_str())}
             </div>
         </p>

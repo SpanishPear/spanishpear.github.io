@@ -1,6 +1,6 @@
 /// Original author of this code is [Nathan Ringo](https://github.com/remexre)
 /// Source: https://github.com/acmumn/mentoring/blob/master/web-client/src/view/markdown.rs
-use pulldown_cmark::{Alignment, CodeBlockKind, Event, Options, Parser, Tag};
+use pulldown_cmark::{Alignment, CodeBlockKind, Event, Options, Parser, Tag, HeadingLevel};
 use yew::virtual_dom::{VNode, VTag, VText};
 use yew::{html, Classes, Html};
 
@@ -110,7 +110,14 @@ fn make_tag(t: Tag) -> VTag {
         Tag::Paragraph => VTag::new("p"),
         Tag::Heading(n, ..) => {
             let mut el = VTag::new(n.to_string());
-            el.add_attribute("class", "font-medium leading-tight text-5xl mt-0 mb-2 text-blue-600");
+            match n {
+                HeadingLevel::H1 => el.add_attribute("class", "text-5xl font-medium my-3"),
+                HeadingLevel::H2 => el.add_attribute("class", "text-3xl font-medium my-3"),
+                HeadingLevel::H3 => el.add_attribute("class", "text-xl font-medium my-3"),
+                HeadingLevel::H4 => el.add_attribute("class", "text-lg font-medium my-3"),
+                HeadingLevel::H5 => el.add_attribute("class", "text-lg font-medium my-3"),
+                HeadingLevel::H6 => el.add_attribute("class", "text-sm font-medium my-3"),
+            }
             el
         },
         Tag::BlockQuote => {

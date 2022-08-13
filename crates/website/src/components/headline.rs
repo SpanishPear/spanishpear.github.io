@@ -19,7 +19,7 @@ pub fn headline() -> Html {
         "items-center",
         "justify-center",
         "flex-col",
-        "h-4/6",
+        "h-[31em]",
         "w-full",
         "py-38",
         "xs:px-2",

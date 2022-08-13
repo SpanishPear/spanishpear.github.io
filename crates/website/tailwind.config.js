@@ -5,6 +5,7 @@ module.exports = {
     "./index.html",
     "./src/**/*.html",
     "./src/**/*.css",
+    "../yew-markdown/src/lib.rs",
   ],
   theme: {
       extend: {

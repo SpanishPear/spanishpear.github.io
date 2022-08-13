@@ -112,8 +112,6 @@ If nothing happens, run:
 ```
 zsh
 ```
-or `exec zsh`
-(credit to @AutumnalBlake)
 
 Then, to make sure that we run OUR version of zsh every time, we add the folllowing to the TOP (!!) of `~/.bashrc`
 
@@ -202,7 +200,7 @@ add
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-z)
 ```
 
-and updatee
+and update
 
 ```
 source ~/.zshrc
@@ -226,6 +224,7 @@ I like to use the alias
 
 ```bash
 alias ll="exa -l"
+alias l="exa -lah"
 ```
 
 in my zshrc file.
@@ -245,9 +244,9 @@ Open xterm and go edit->preferences->appearances  and select the installed font.
 
 ### Further Customisation:
 
-[powerlevel10k configuration](https://github.com/romkatv/powerlevel10k/blob/master/README.md#configuration)
+ - [powerlevel10k configuration](https://github.com/romkatv/powerlevel10k/blob/master/README.md#configuration)
 
-[prompt colour customisation](https://github.com/romkatv/powerlevel10k/blob/master/README.md#how-do-i-change-prompt-colors)
+ - [prompt colour customisation](https://github.com/romkatv/powerlevel10k/blob/master/README.md#how-do-i-change-prompt-colors)
 
 ### Fonts are showing weird symbols
 

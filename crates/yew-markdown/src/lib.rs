@@ -1,6 +1,6 @@
 /// Original author of this code is [Nathan Ringo](https://github.com/remexre)
 /// Source: https://github.com/acmumn/mentoring/blob/master/web-client/src/view/markdown.rs
-use pulldown_cmark::{Alignment, CodeBlockKind, Event, Options, Parser, Tag, HeadingLevel};
+use pulldown_cmark::{Alignment, CodeBlockKind, Event, HeadingLevel, Options, Parser, Tag};
 use yew::virtual_dom::{VNode, VTag, VText};
 use yew::{html, Classes, Html};
 
@@ -97,7 +97,7 @@ pub fn render_markdown(src: &str) -> Html {
                 let mut code = VTag::new("code");
                 code.add_child(child);
                 add_child!(code.into())
-            },
+            }
             // HMMM how tf we gonna do html huh
             // Event::Html(text) => add_child!(VText::new(text).into()),
             _ => println!("Unknown event: {:#?}", ev),
@@ -119,7 +119,9 @@ fn make_tag(t: Tag) -> VTag {
         Tag::Heading(n, ..) => {
             let mut el = VTag::new(n.to_string());
             match n {
-                HeadingLevel::H1 => el.add_attribute("class", "text-5xl font-medium my-3 text-center"),
+                HeadingLevel::H1 => {
+                    el.add_attribute("class", "text-5xl font-medium my-3 text-center")
+                }
                 HeadingLevel::H2 => el.add_attribute("class", "text-3xl font-medium my-3"),
                 HeadingLevel::H3 => el.add_attribute("class", "text-xl font-medium my-3"),
                 HeadingLevel::H4 => el.add_attribute("class", "text-lg font-medium my-3"),
@@ -127,7 +129,7 @@ fn make_tag(t: Tag) -> VTag {
                 HeadingLevel::H6 => el.add_attribute("class", "text-sm font-medium my-3"),
             }
             el
-        },
+        }
         Tag::BlockQuote => {
             let mut el = VTag::new("blockquote");
             el.add_attribute("class", "blockquote");
@@ -157,12 +159,12 @@ fn make_tag(t: Tag) -> VTag {
             let mut el = VTag::new("ul");
             el.add_attribute("class", "list-disc list-inside");
             el
-        },
+        }
         Tag::List(Some(1)) => {
             let mut el = VTag::new("ol");
             el.add_attribute("class", "list-decimal list-inside");
             el
-        },
+        }
         Tag::List(Some(ref start)) => {
             let mut el = VTag::new("ol");
             el.add_attribute("start", start.to_string());

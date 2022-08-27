@@ -1,6 +1,6 @@
-use crate::{Route};
+use crate::Route;
 use yew::prelude::*;
-use yew_router::{prelude::*, hooks::use_route};
+use yew_router::{hooks::use_route, prelude::*};
 
 #[derive(Properties, Debug, PartialEq)]
 struct NavItem {
@@ -23,7 +23,6 @@ const NAV_CLASSES: &[&str] = &[
 
 #[function_component(Navbar)]
 pub fn navbar() -> Html {
-
     let nav_items = vec![
         NavItem {
             link: Route::Home,
@@ -77,7 +76,6 @@ pub fn navbar() -> Html {
     }
 }
 
-
 #[function_component(NavItemComponent)]
 fn navbar_item(NavItem { link, text }: &NavItem) -> Html {
     let route: Option<Route> = use_route();
@@ -86,7 +84,7 @@ fn navbar_item(NavItem { link, text }: &NavItem) -> Html {
         <li>
           <Link<Route> to={link.clone()} classes={
               classes!(NAV_CLASSES, route.map(|r| if r == *link { "underline" } else { "" }))
-            } 
+            }
           >
               {text}
           </Link<Route>>

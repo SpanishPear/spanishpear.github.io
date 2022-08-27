@@ -1,17 +1,16 @@
+use crate::Route;
 use yew::prelude::*;
 use yew_router::components::Link;
-use crate::Route;
 
 #[derive(Clone, Debug, PartialEq, Properties)]
 pub struct ButtonProps {
     pub label: String,
-    pub to: Route, 
+    pub to: Route,
     pub classes: Option<String>,
 }
 
 #[function_component(LinkButton)]
 pub fn link_button(props: &ButtonProps) -> Html {
-
     let button_classes = vec![
         "focus:outline-none",
         "text-white",
@@ -31,15 +30,15 @@ pub fn link_button(props: &ButtonProps) -> Html {
         "transform",
         "transition",
         "duration-100",
-        "hover:translate-x-6" 
+        "hover:translate-x-6",
     ];
-   
+
     let classes = props.classes.clone();
     html! {
         <Link<Route>
-            classes={classes!(classes.unwrap_or_else(|| "".to_string()), button_classes)} 
+            classes={classes!(classes.unwrap_or_else(|| "".to_string()), button_classes)}
             to={props.to.clone()}
-        > 
+        >
             { props.label.clone() }
         </Link<Route>>
     }

@@ -29,10 +29,7 @@ pub fn headline() -> Html {
         "dark:to-landing-container-end",
     ];
 
-    let text_classes = vec![
-        "text-white",
-        "my-4",
-    ];
+    let text_classes = vec!["text-white", "my-4"];
 
     html! {
         <div class={classes!(container_classes)}>
@@ -48,9 +45,9 @@ pub fn headline() -> Html {
                 not finishing new side projects, and the colours pink/purple (could you tell?).
                 "}
             </p>
-            <p class={classes!(text_classes)}>    
+            <p class={classes!(text_classes)}>
                 {"
-                I'm currently working as a frontend engineer at "} 
+                I'm currently working as a frontend engineer at "}
                 <a class="text-pink-500 background-transparent font-bold uppercase p1-3 py-1 text-xs outline-none focus:outline-none mx-1 mb-1 ease-linear transition-all duration-150" href="https://www.atlassian.com/">
                     {"Atlassian"}
                 </a>
@@ -61,8 +58,8 @@ pub fn headline() -> Html {
                 <a class="text-pink-500 background-transparent font-bold uppercase px-1 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/">{"UNSW School of Computer Science."}</a>
             </p>
 
-            <LinkButton 
-                to={ Route::About }    
+            <LinkButton
+                to={ Route::About }
                 label={"Learn more"}
             />
             </div>

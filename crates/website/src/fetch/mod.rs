@@ -12,7 +12,6 @@ pub struct FetchError {
     err: JsValue,
 }
 
-
 impl Display for FetchError {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         Debug::fmt(&self.err, f)
@@ -35,7 +34,7 @@ pub enum FetchState<T> {
     Failed(FetchError),
 }
 
-/// Fetches markdown 
+/// Fetches markdown
 ///
 /// Consult the following for an example of the fetch api by the team behind web_sys:
 /// https://rustwasm.github.io/wasm-bindgen/examples/fetch.html

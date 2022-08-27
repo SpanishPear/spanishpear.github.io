@@ -1,5 +1,4 @@
-
-#[derive(Clone, Debug, Copy,  PartialEq, Eq)]
+#[derive(Clone, Debug, Copy, PartialEq, Eq)]
 pub struct Post {
     pub author: &'static str,
     pub title: &'static str,

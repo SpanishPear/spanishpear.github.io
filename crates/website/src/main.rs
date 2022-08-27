@@ -1,15 +1,14 @@
-use yew::prelude::*;
-use yew_router::prelude::*;
 use components::background::Background;
 use wasm_bindgen::prelude::wasm_bindgen;
+use yew::prelude::*;
+use yew_router::prelude::*;
 
 #[macro_use]
 pub mod macros;
-pub mod fetch;
 pub mod blogs;
 pub mod components;
+pub mod fetch;
 pub mod pages;
-
 
 #[wasm_bindgen]
 extern "C" {
@@ -73,12 +72,11 @@ fn switch(route: &Route) -> Html {
             html! { <pages::post::PostContainer {post} /> }
         }
         Route::Projects => html! { <pages::construction::Construction /> },
-        Route::Project { id: _} => html! { <pages::construction::Construction /> },
+        Route::Project { id: _ } => html! { <pages::construction::Construction /> },
     }
 }
 #[function_component(ScrollToTop)]
 fn scroll_to_top() -> Html {
-        
     let location = use_location();
     let pathname = match location {
         Some(AnyLocation::Browser(location)) => location.pathname(),
@@ -86,17 +84,21 @@ fn scroll_to_top() -> Html {
     };
     {
         let pathname2 = pathname.clone();
-        use_effect_with_deps(move |_|{
-            wasm_bindgen_futures::spawn_local(async move {
-                if pathname != "/" {
-                    web_sys::window().unwrap().scroll_to_with_scroll_to_options(web_sys::ScrollToOptions::new().top(0.0));
-                }
-            });
-            || ()
-        }, pathname2);
+        use_effect_with_deps(
+            move |_| {
+                wasm_bindgen_futures::spawn_local(async move {
+                    if pathname != "/" {
+                        web_sys::window().unwrap().scroll_to_with_scroll_to_options(
+                            web_sys::ScrollToOptions::new().top(0.0),
+                        );
+                    }
+                });
+                || ()
+            },
+            pathname2,
+        );
     }
-    html! {
-    }
+    html! {}
 }
 #[function_component(App)]
 fn app() -> Html {

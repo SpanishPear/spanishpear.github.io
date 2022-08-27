@@ -252,14 +252,14 @@ Open xterm and go edit->preferences->appearances  and select the installed font.
 
 ### Further Customisation:
 
- - [powerlevel10k configuration](https://github.com/romkatv/powerlevel10k/blob/master/README.md#configuration)
+Powerlevel10k configuration: [https://github.com/romkatv/powerlevel10k/blob/master/README.md#configuration](https://github.com/romkatv/powerlevel10k/blob/master/README.md#configuration)
 
- - [prompt colour customisation](https://github.com/romkatv/powerlevel10k/blob/master/README.md#how-do-i-change-prompt-colors)
+Prompt colour customisation: [https://github.com/romkatv/powerlevel10k/blob/master/README.md#how-do-i-change-prompt-colors](https://github.com/romkatv/powerlevel10k/blob/master/README.md#how-do-i-change-prompt-colors)
 
 ### Fonts are showing weird symbols
 
-Install the correct font into your terminal - I'm still yet to get this working on VLAB.
+Install the correct font into your terminal!
 
 Works on CSE through ssh, since obviously the font being used is on your local machine.
 
-Take a look at [this section](https://github.com/romkatv/powerlevel10k#fonts) of the readme.
+Take a look at this section: [https://github.com/romkatv/powerlevel10k#fonts](https://github.com/romkatv/powerlevel10k#fonts) of the readme.

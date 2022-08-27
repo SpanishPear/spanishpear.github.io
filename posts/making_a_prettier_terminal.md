@@ -10,15 +10,14 @@ to
 
 ## Some basic colours :)
 
-So, you want some colours eh?
-
-Simply run the command
+If you're on a UNSW CSE server, you can run the command
 
 ```bash
 1511 colours
 ```
 
-should setup your bash terminal to now be colourful! Make sure to refresh your terminal configuration with
+it should setup your bash terminal to now be colourful! 
+Make sure to refresh your terminal configuration - either by closing and opening, or by running the command: 
 
 ```bash
 source ~/.bashrc
@@ -55,11 +54,20 @@ The difference mainly between zsh and bash is that zsh comes with an extended se
 - git command completion and aliases
 - path expansionn e.g. Enter cd /u/lo/b, press tab, and it will be completed to cd /usr/local/bin since it is the only matching pattern
 
-Most importantly to us - it allows us to make our terminal LOOK PRETTY
 
-## Installing zsh on CSE
+Most importantly to us - it allows us to make our terminal ✨LOOK PRETTY ✨!
 
-We dont need to do this, its already installed for us :)
+## Installing zsh
+
+If you're on cse - you don't need to do this! If you want to change
+your shell to permanently be `zsh` - you should email ss@cse.unsw.edu.au
+to get it changed! 
+
+Otherwise, you can run the `zsh` command on each login (or find an automated way to 
+do this! 😉)
+
+If you're looking to install `zsh` on your local machine, you can view the
+setup instructions [here](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH).
 
 ## Installing Powerlevel10k
 

@@ -92,6 +92,14 @@ pub fn render_markdown(src: &str) -> Html {
             Event::Rule => add_child!(VTag::new("hr").into()),
             Event::SoftBreak => add_child!(VText::new("\n").into()),
             Event::HardBreak => add_child!(VTag::new("br").into()),
+            Event::Code(text) => {
+                let child = VText::new(text.to_string()).into();
+                let mut code = VTag::new("code");
+                code.add_child(child);
+                add_child!(code.into())
+            },
+            // HMMM how tf we gonna do html huh
+            // Event::Html(text) => add_child!(VText::new(text).into()),
             _ => println!("Unknown event: {:#?}", ev),
         }
     }
@@ -111,7 +119,7 @@ fn make_tag(t: Tag) -> VTag {
         Tag::Heading(n, ..) => {
             let mut el = VTag::new(n.to_string());
             match n {
-                HeadingLevel::H1 => el.add_attribute("class", "text-5xl font-medium my-3"),
+                HeadingLevel::H1 => el.add_attribute("class", "text-5xl font-medium my-3 text-center"),
                 HeadingLevel::H2 => el.add_attribute("class", "text-3xl font-medium my-3"),
                 HeadingLevel::H3 => el.add_attribute("class", "text-xl font-medium my-3"),
                 HeadingLevel::H4 => el.add_attribute("class", "text-lg font-medium my-3"),
@@ -142,14 +150,23 @@ fn make_tag(t: Tag) -> VTag {
                     _ => {} // Add your own language highlighting support
                 };
             }
-
+            el.add_attribute("class", "my-3");
             el
         }
-        Tag::List(None) => VTag::new("ul"),
-        Tag::List(Some(1)) => VTag::new("ol"),
+        Tag::List(None) => {
+            let mut el = VTag::new("ul");
+            el.add_attribute("class", "list-disc list-inside");
+            el
+        },
+        Tag::List(Some(1)) => {
+            let mut el = VTag::new("ol");
+            el.add_attribute("class", "list-decimal list-inside");
+            el
+        },
         Tag::List(Some(ref start)) => {
             let mut el = VTag::new("ol");
             el.add_attribute("start", start.to_string());
+            el.add_attribute("class", "list-decimal list-inside");
             el
         }
         Tag::Item => VTag::new("li"),

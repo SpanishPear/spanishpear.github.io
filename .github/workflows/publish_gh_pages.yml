@@ -34,4 +34,5 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./crates/website/dist
+        force_orphan: true
         cname: spanishpe.ar

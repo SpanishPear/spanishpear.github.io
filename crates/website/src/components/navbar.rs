@@ -19,6 +19,7 @@ const NAV_CLASSES: &[&str] = &[
     "md:p-0",
     "dark:text-white",
     "hover:underline",
+    "text-2xl",
 ];
 
 #[function_component(Navbar)]
@@ -47,7 +48,7 @@ pub fn navbar() -> Html {
     ];
 
     html! {
-        <nav class="dark:bg-landing-navbar bg-white border-gray-200 px-2 sm:px-4 py-2.5">
+        <nav class="dark:bg-landing-navbar bg-white border-gray-200 px-2 sm:px-4 py-8">
           <div class="container flex flex-wrap justify-between items-center mx-auto">
             <Link<Route> to={Route::Home} classes="flex items-center">
                 <img loading="lazy" src="/assets/logo.svg" class="mr-3 h-9 sm:h-12" width="77" height="67" alt="SpanishPear Icon" />

@@ -1,4 +1,4 @@
-use components::background::Background;
+use components::gradient_background::Background;
 use wasm_bindgen::prelude::wasm_bindgen;
 use yew::prelude::*;
 use yew_router::prelude::*;
@@ -48,7 +48,9 @@ fn main() {
 
 fn switch(route: &Route) -> Html {
     match route {
-        Route::Home => html! { <pages::home::Home /> },
+        Route::Home => html! {
+            <pages::home::Home />
+        },
         Route::NotFound => html! { <pages::not_found::NotFound /> },
         Route::About => html! { <pages::construction::Construction /> },
         Route::Contact => html! { <pages::construction::Construction /> },
@@ -69,7 +71,9 @@ fn switch(route: &Route) -> Html {
                     }
                 });
 
-            html! { <pages::post::PostContainer {post} /> }
+            html! {
+                <pages::post::PostContainer {post} />
+            }
         }
         Route::Projects => html! { <pages::construction::Construction /> },
         Route::Project { id: _ } => html! { <pages::construction::Construction /> },

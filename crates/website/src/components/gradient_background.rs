@@ -11,7 +11,7 @@ pub fn background_wrapper(BackgroundProps { children }: &BackgroundProps) -> Htm
     html! {
         <>
         <Navbar />
-        <div class="h-full min-h-screen bg-gradient-to-b dark:from-landing-navbar dark:to-landing-container-end" >
+        <div class="flex flex-col justify-around h-full min-h-screen bg-gradient-to-b dark:from-landing-navbar" >
             { children.clone() }
         </div>
         </>

@@ -1,4 +1,4 @@
-pub mod background;
+pub mod gradient_background;
 pub mod headline;
 pub mod link_button;
 pub mod navbar;

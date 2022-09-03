@@ -5,16 +5,13 @@ use yew::prelude::*;
 
 #[function_component(RecentPosts)]
 pub fn recent_posts() -> Html {
+    let inner_container_styles = vec!["flex", "w-7/12", "flex-col", "items-center", "pb-6"];
+
     html! {
-        <div class="p-12 dark:bg-landing-container-end flex flex-col items-center">
-            <div class="flex w-10/12 flex-col items-center">
-                <div class="md:max-w-[75%] xs:max-w-full md:p-6 flex w-full items-center justify-between flex-row">
-                    <h2 class="text-sm md:text-xl rounded sm:p-2 text-white md:text-left text-center">
-                        {"Recent Posts"}
-                    </h2>
-                    <LinkButton to={Route::Blog} label={"View All →"} />
-                </div>
-                <div class="flex flex-row w-full justify-around">
+        <div class="p-12 mt-16 flex flex-col items-center">
+            <div class={classes!(inner_container_styles)}>
+                <RecentPostHeader />
+                <div class="flex flex-row w-full justify-center lg:max-w-[75%] sm:max-w-full">
                 {
                     POSTS.iter().enumerate().map(|(i, &post)| {
                         html! {
@@ -28,6 +25,42 @@ pub fn recent_posts() -> Html {
                 }
                 </div>
             </div>
+        </div>
+    }
+}
+
+#[function_component(RecentPostHeader)]
+pub fn recent_post_header() -> Html {
+    let container_styles = vec![
+        "lg:max-w-[75%]",
+        "sm:max-w-full",
+        "md:p-3",
+        "flex",
+        "w-full",
+        "items-center",
+        "justify-between",
+        "flex-row",
+    ];
+
+    let heading_styles = vec![
+        "text-sm",
+        "underline-offset-8",
+        "underline",
+        "decoration-landing-container-end",
+        "md:text-2xl",
+        "rounded",
+        "sm:p-2",
+        "text-white",
+        "md:text-left",
+        "text-center",
+    ];
+
+    html! {
+        <div class={classes!(container_styles)}>
+            <h2 class={classes!(heading_styles)}>
+                {"Recent Posts"}
+            </h2>
+            <LinkButton to={Route::Blog} label={"View All →"} />
         </div>
     }
 }

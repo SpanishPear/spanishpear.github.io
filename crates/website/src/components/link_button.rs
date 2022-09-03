@@ -20,7 +20,7 @@ pub fn link_button(props: &ButtonProps) -> Html {
         "focus:ring-purple-300",
         "font-medium",
         "rounded-lg",
-        "text-sm",
+        "text-lg",
         "px-5",
         "py-2.5",
         "mb-2",
@@ -36,7 +36,7 @@ pub fn link_button(props: &ButtonProps) -> Html {
     let classes = props.classes.clone();
     html! {
         <Link<Route>
-            classes={classes!(classes.unwrap_or_else(|| "".to_string()), button_classes)}
+            classes={classes!(button_classes, classes.unwrap_or_else(|| "".to_string()),)}
             to={props.to.clone()}
         >
             { props.label.clone() }

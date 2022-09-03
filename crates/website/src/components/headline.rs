@@ -5,7 +5,7 @@ use crate::{components::link_button::LinkButton, Route};
 #[function_component(Headline)]
 pub fn headline() -> Html {
     let heading_classes = vec![
-        "text-2xl",
+        "text-5xl",
         "font-bold",
         "leading-7",
         "dark:text-white",
@@ -26,17 +26,31 @@ pub fn headline() -> Html {
         "md:px-0",
         "bg-gradient-to-b",
         "dark:from-landing-navbar",
-        "dark:to-landing-container-end",
     ];
 
-    let text_classes = vec!["text-white", "my-4"];
+    let text_classes = vec!["text-white", "my-4", "text-3xl"];
+
+    let link_classes = vec![
+        "text-pink-500",
+        "background-transparent",
+        "font-bold",
+        "uppercase",
+        "px-1",
+        "py-1",
+        "outline-none",
+        "focus:outline-none",
+        "mr-1",
+        "mb-1",
+        "text-xl",
+    ];
 
     html! {
         <div class={classes!(container_classes)}>
-            <div class="sm:max-w-l xs:px-2 text-center max-w-xl flex items-center justify-center flex-col">
-            <h1 class={classes!(heading_classes)}>
+            <div class="sm:max-w-l xs:px-2 text-center max-w-3xl flex items-center justify-center flex-col">
+            <h1 class={classes!(heading_classes, "my-10")}>
                 {"Hello! I'm Shrey :)"}
             </h1>
+            <br class="mt-14"/>
             <p class={classes!(text_classes.clone())} >
                 {
                 "
@@ -48,14 +62,18 @@ pub fn headline() -> Html {
             <p class={classes!(text_classes)}>
                 {"
                 I'm currently working as a frontend engineer at "}
-                <a class="text-pink-500 background-transparent font-bold uppercase p1-3 py-1 text-xs outline-none focus:outline-none mx-1 mb-1 ease-linear transition-all duration-150" href="https://www.atlassian.com/">
+                <a class={classes!(link_classes.clone())}
+                    href="https://www.atlassian.com/">
                     {"Atlassian"}
                 </a>
                 {", and outside
                 of that - I help teach, run courses and write software for the
                 "}
                 <br />
-                <a class="text-pink-500 background-transparent font-bold uppercase px-1 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/">{"UNSW School of Computer Science."}</a>
+                <a class={classes!(link_classes)}
+                    href="https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering/">
+                    {"UNSW School of Computer Science."}
+                </a>
             </p>
 
             <LinkButton

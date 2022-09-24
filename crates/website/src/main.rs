@@ -1,4 +1,5 @@
 use components::gradient_background::Background;
+use components::navbar::Navbar;
 use wasm_bindgen::prelude::wasm_bindgen;
 use yew::prelude::*;
 use yew_router::prelude::*;
@@ -49,7 +50,9 @@ fn main() {
 fn switch(route: &Route) -> Html {
     match route {
         Route::Home => html! {
-            <pages::home::Home />
+            <Background>
+                <pages::home::Home />
+            </Background>
         },
         Route::NotFound => html! { <pages::not_found::NotFound /> },
         Route::About => html! { <pages::construction::Construction /> },
@@ -110,10 +113,9 @@ fn app() -> Html {
     html! {
         <ContextProvider<Theme> context={(*theme).clone()}>
             <BrowserRouter>
-                <Background>
-                    <ScrollToTop />
-                    <Switch<Route> render={Switch::render(switch)} />
-                </Background>
+                <Navbar />
+                <ScrollToTop />
+                <Switch<Route> render={Switch::render(switch)} />
             </BrowserRouter>
         </ContextProvider<Theme>>
     }

@@ -28,7 +28,7 @@ pub fn headline() -> Html {
         "dark:from-landing-navbar",
     ];
 
-    let text_classes = vec!["text-white", "my-4", "text-3xl"];
+    let text_classes = vec!["text-white", "my-4", "xs:text-lg", "text-3xl"];
 
     let link_classes = vec![
         "text-pink-500",

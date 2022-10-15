@@ -15,8 +15,17 @@ pub const POSTS: &[&Post] = &[
         title: "A prettier terminal",
         subtitle: "maybe you'll actually enjoy using it",
         slug: "prettier-terminal",
-        content: "https://raw.githubusercontent.com/SpanishPear/spanishpear.github.io/main/posts/making_a_prettier_terminal.md",
+        content: "./posts/making_a_prettier_terminal.md",
         date: "2022-05-07",
         thumbnail_path: "/assets/pretty-terminal.png",
-    }
+    },
+    &Post {
+        author: "Shrey",
+        title: "Smart Pointers",
+        subtitle: "A deep dive into the Rust smart pointer types",
+        slug: "smart-pointers",
+        content: "./posts/smart_pointers.md",
+        date: "2022-24-09",
+        thumbnail_path: "/assets/smart-pointers.png",
+    },
 ];

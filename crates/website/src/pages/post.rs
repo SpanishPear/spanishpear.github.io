@@ -1,8 +1,8 @@
-use crate::{blogs::Post, fetch};
+use crate::{blogs::Post, fetch::fetch_url};
 use yew::prelude::*;
 use yew_markdown::render_markdown;
 
-#[derive(Clone, Debug, PartialEq, Properties)]
+#[derive(Clone, Debug, PartialEq, Eq, Properties)]
 pub struct PostProps {
     pub post: Post,
 }
@@ -18,8 +18,7 @@ pub fn post(props: &PostProps) -> Html {
             move |_| {
                 let markdown = markdown.clone();
                 wasm_bindgen_futures::spawn_local(async move {
-                    let fetched_markdown = fetch::fetch_markdown_from_url(content).await;
-                    match fetched_markdown {
+                    match fetch_url(content).await {
                         Ok(fetched) => markdown.set(fetched),
                         Err(err) => {
                             log::error!("{:?}", err);

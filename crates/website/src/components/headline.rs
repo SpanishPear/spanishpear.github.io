@@ -31,7 +31,7 @@ pub fn headline() -> Html {
     let text_classes = vec!["text-white", "my-4", "xs:text-lg", "text-3xl"];
 
     let link_classes = vec![
-        "text-pink-500",
+        "text-[#fde047]",
         "background-transparent",
         "font-bold",
         "uppercase",

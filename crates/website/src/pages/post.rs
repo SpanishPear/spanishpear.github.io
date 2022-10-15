@@ -1,8 +1,4 @@
-use crate::{
-    blogs::Post,
-    fetch::{fetch_markdown, UrlType},
-};
-use log::info;
+use crate::{blogs::Post, fetch::fetch_url};
 use yew::prelude::*;
 use yew_markdown::render_markdown;
 
@@ -21,10 +17,8 @@ pub fn post(props: &PostProps) -> Html {
         use_effect_with_deps(
             move |_| {
                 let markdown = markdown.clone();
-                // if url starts with ./ then fetch file
-                // else fetch from url
                 wasm_bindgen_futures::spawn_local(async move {
-                    match fetch_markdown(content, UrlType::Url).await {
+                    match fetch_url(content).await {
                         Ok(fetched) => markdown.set(fetched),
                         Err(err) => {
                             log::error!("{:?}", err);

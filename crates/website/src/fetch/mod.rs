@@ -35,22 +35,6 @@ pub enum FetchState<T> {
     Failed(FetchError),
 }
 
-pub enum UrlType {
-    File,
-    Url,
-}
-
-/// Fetches markdown
-///
-/// Consult the following for an example of the fetch api by the team behind web_sys:
-/// https://rustwasm.github.io/wasm-bindgen/examples/fetch.html
-pub async fn fetch_markdown(url: &'static str, url_type: UrlType) -> Result<String, FetchError> {
-    match url_type {
-        UrlType::Url => fetch_url(url).await,
-        _ => fetch_url(url).await,
-    }
-}
-
 /// fetch markdown from a remote URL
 pub async fn fetch_url(url: &'static str) -> Result<String, FetchError> {
     let mut opts = RequestInit::new();

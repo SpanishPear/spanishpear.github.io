@@ -10,7 +10,7 @@ pub struct PostProps {
 #[function_component(PostContainer)]
 pub fn post(props: &PostProps) -> Html {
     let markdown = use_state(|| "Loading...".to_string());
-    let content = props.post.content;
+    let content = props.post.content.clone();
     // async load the content
     {
         let markdown = markdown.clone();
@@ -18,7 +18,7 @@ pub fn post(props: &PostProps) -> Html {
             move |_| {
                 let markdown = markdown.clone();
                 wasm_bindgen_futures::spawn_local(async move {
-                    match fetch_url(content).await {
+                    match fetch_url(&content).await {
                         Ok(fetched) => markdown.set(fetched),
                         Err(err) => {
                             log::error!("{:?}", err);

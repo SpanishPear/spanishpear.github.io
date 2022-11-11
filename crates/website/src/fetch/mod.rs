@@ -36,7 +36,7 @@ pub enum FetchState<T> {
 }
 
 /// fetch markdown from a remote URL
-pub async fn fetch_url(url: &'static str) -> Result<String, FetchError> {
+pub async fn fetch_url(url: &str) -> Result<String, FetchError> {
     let mut opts = RequestInit::new();
     opts.method("GET");
     opts.mode(RequestMode::Cors);

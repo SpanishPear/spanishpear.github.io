@@ -4,6 +4,8 @@ use wasm_bindgen::prelude::wasm_bindgen;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
+use self::blogs::Post;
+
 #[macro_use]
 pub mod macros;
 pub mod blogs;
@@ -47,7 +49,7 @@ fn main() {
     yew::start_app::<App>();
 }
 
-fn switch(route: &Route) -> Html {
+fn switch(route: &Route, posts: UseStateHandle<Vec<Post>>) -> Html {
     match route {
         Route::Home => html! {
             <Background>
@@ -59,23 +61,23 @@ fn switch(route: &Route) -> Html {
         Route::Contact => html! { <pages::construction::Construction /> },
         Route::Blog => html! { <pages::construction::Construction /> },
         Route::BlogPost { id } => {
-            let post = **crate::blogs::POSTS
-                .iter()
-                .find(|post| post.slug == id)
-                .unwrap_or({
-                    &&crate::blogs::Post {
-                        author: "",
-                        title: "404",
-                        subtitle: "",
-                        slug: "404",
-                        content: "",
-                        date: "",
-                        thumbnail_path: "",
-                    }
-                });
+            let post = posts.iter().find(|post| post.slug == *id);
+            let post = match post {
+                Some(post) => post.clone(),
+                None => blogs::Post {
+                    author: "".into(),
+                    title: "404".into(),
+                    subtitle: "".into(),
+                    slug: "".into(),
+                    content: "404".into(),
+                    date: "".into(),
+                    thumbnail_path: "".into(),
+                    tags: None,
+                },
+            };
 
             html! {
-                <pages::post::PostContainer {post} />
+                <pages::post::PostContainer post={post} />
             }
         }
         Route::Projects => html! { <pages::construction::Construction /> },
@@ -84,6 +86,8 @@ fn switch(route: &Route) -> Html {
 }
 #[function_component(ScrollToTop)]
 fn scroll_to_top() -> Html {
+    // this is just a component that will scroll_to_top
+    // when the route changes
     let location = use_location();
     let pathname = match location {
         Some(AnyLocation::Browser(location)) => location.pathname(),
@@ -110,13 +114,39 @@ fn scroll_to_top() -> Html {
 #[function_component(App)]
 fn app() -> Html {
     let theme = use_state(|| Theme { dark: false });
+    let posts = use_state(|| {
+        vec![
+            Post {
+                author: "Shrey".into(),
+                title: "A prettier terminal".into(),
+                subtitle: "maybe you'll actually enjoy using it".into(),
+                slug: "prettier-terminal".into(),
+                content: "./posts/making_a_prettier_terminal.md".into(),
+                date: "2022-05-07".into(),
+                thumbnail_path: "/assets/pretty-terminal.png".into(),
+                tags: None,
+            },
+            Post {
+                author: "Shrey".into(),
+                title: "Smart Pointers".into(),
+                subtitle: "A deep dive into the Rust smart pointer types".into(),
+                slug: "smart-pointers".into(),
+                content: "./posts/smart_pointers.md".into(),
+                date: "2022-24-09".into(),
+                thumbnail_path: "/assets/smart-pointers.png".into(),
+                tags: None,
+            },
+        ]
+    });
     html! {
-        <ContextProvider<Theme> context={(*theme).clone()}>
-            <BrowserRouter>
-                <Navbar />
-                <ScrollToTop />
-                <Switch<Route> render={Switch::render(switch)} />
-            </BrowserRouter>
-        </ContextProvider<Theme>>
+        <ContextProvider<Vec<Post>> context={(*posts).clone()}>
+            <ContextProvider<Theme> context={(*theme).clone()}>
+                <BrowserRouter>
+                    <Navbar />
+                    <ScrollToTop />
+                    <Switch<Route> render={Switch::render(move |route| switch(route, posts.clone()))} />
+                </BrowserRouter>
+            </ContextProvider<Theme>>
+        </ContextProvider<Vec<Post>>>
     }
 }

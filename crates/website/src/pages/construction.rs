@@ -5,7 +5,7 @@ use yew::prelude::*;
 #[function_component(Construction)]
 pub fn construction() -> Html {
     html! {
-        <div class="flex h-[80vh] flex-col justify-center items-center ">
+        <div class="flex h-[100vh] flex-col justify-center items-center ">
         <p class="font-black dark:text-white text-5xl">{"Page under construction!"}</p>
         <p class="font-black font-thin my-2 dark:text-white">{"Shrey is working hard to make the following page load!"}</p>
         <div class="flex flex-row">

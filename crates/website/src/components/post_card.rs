@@ -3,7 +3,7 @@ use crate::Route;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-#[derive(PartialEq, Properties)]
+#[derive(PartialEq, Eq, Properties)]
 pub struct PostCardProps {
     pub post: Post,
 }

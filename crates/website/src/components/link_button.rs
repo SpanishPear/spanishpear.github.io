@@ -2,7 +2,7 @@ use crate::Route;
 use yew::prelude::*;
 use yew_router::components::Link;
 
-#[derive(Clone, Debug, PartialEq, Properties)]
+#[derive(Clone, Debug, PartialEq, Eq, Properties)]
 pub struct ButtonProps {
     pub label: String,
     pub to: Route,
@@ -36,7 +36,7 @@ pub fn link_button(props: &ButtonProps) -> Html {
     let classes = props.classes.clone();
     html! {
         <Link<Route>
-            classes={classes!(button_classes, classes.unwrap_or_else(|| "".to_string()),)}
+            classes={classes!(button_classes, classes.unwrap_or_default(),)}
             to={props.to.clone()}
         >
             { props.label.clone() }

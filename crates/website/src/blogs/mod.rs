@@ -9,6 +9,7 @@ pub struct Post {
     pub content: String,
     pub date: String, //sue me
     pub thumbnail_path: String,
+    pub public: bool,
     pub tags: Option<Tags>,
 }
 

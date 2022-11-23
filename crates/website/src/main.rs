@@ -60,7 +60,7 @@ fn switch(route: &Route, posts: UseStateHandle<Vec<Post>>) -> Html {
         Route::NotFound => html! { <pages::not_found::NotFound /> },
         Route::About => html! { <pages::construction::Construction /> },
         Route::Contact => html! { <pages::construction::Construction /> },
-        Route::Blog => html! { <pages::construction::Construction /> },
+        Route::Blog => html! { <pages::all_posts::PostPage /> },
         Route::BlogPost { id } => {
             let post = posts.iter().find(|post| post.slug == *id);
             let post = match post {
@@ -72,6 +72,7 @@ fn switch(route: &Route, posts: UseStateHandle<Vec<Post>>) -> Html {
                     slug: "".into(),
                     content: "404".into(),
                     date: "".into(),
+                    public: true,
                     thumbnail_path: "".into(),
                     tags: None,
                 },
@@ -125,6 +126,7 @@ fn app() -> Html {
                 content: "./posts/making_a_prettier_terminal.md".into(),
                 date: "2022-05-07".into(),
                 thumbnail_path: "/assets/pretty-terminal.png".into(),
+                public: true,
                 tags: Some(Tags::new(vec!["tooling"])),
             },
             Post {
@@ -135,6 +137,7 @@ fn app() -> Html {
                 content: "./posts/smart_pointers.md".into(),
                 date: "2022-24-09".into(),
                 thumbnail_path: "/assets/smart-pointers.png".into(),
+                public: false,
                 tags: None,
             },
         ]

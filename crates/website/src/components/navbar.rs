@@ -84,7 +84,15 @@ fn navbar_item(NavItem { link, text }: &NavItem) -> Html {
     html! {
         <li>
           <Link<Route> to={link.clone()} classes={
-              classes!(NAV_CLASSES, route.map(|r| if r == *link { "underline" } else { "" }))
+              classes!(NAV_CLASSES, route.map(|r| {
+                  if let Route::BlogPost { id: _ } = r {
+                      if link == &Route::Blog {
+                        "underline"
+                      } else {
+                        ""
+                      }
+                 } else if r == *link { "underline" } else { "" }
+              }))
             }
           >
               {text}

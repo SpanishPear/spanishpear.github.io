@@ -5,7 +5,7 @@ use wasm_bindgen::prelude::wasm_bindgen;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use self::blogs::Post;
+use self::blogs::{Post, Tags};
 
 #[macro_use]
 pub mod macros;
@@ -125,7 +125,7 @@ fn app() -> Html {
                 content: "./posts/making_a_prettier_terminal.md".into(),
                 date: "2022-05-07".into(),
                 thumbnail_path: "/assets/pretty-terminal.png".into(),
-                tags: None,
+                tags: Some(Tags::new(vec!["tooling"])),
             },
             Post {
                 author: "Shrey".into(),
@@ -139,6 +139,7 @@ fn app() -> Html {
             },
         ]
     });
+
     html! {
         <ContextProvider<Vec<Post>> context={(*posts).clone()}>
             <ContextProvider<Theme> context={(*theme).clone()}>

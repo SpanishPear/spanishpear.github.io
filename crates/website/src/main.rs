@@ -1,3 +1,4 @@
+#![allow(clippy::let_unit_value)]
 use components::gradient_background::Background;
 use components::navbar::Navbar;
 use wasm_bindgen::prelude::wasm_bindgen;

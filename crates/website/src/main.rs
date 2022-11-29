@@ -140,6 +140,29 @@ fn app() -> Html {
                 public: false,
                 tags: None,
             },
+            Post {
+                author: "Shrey".into(),
+                title: "Hustle Mania".into(),
+                subtitle: "Burnout in the world of tech".into(),
+                slug: "hustle_mania".into(),
+                content: "./posts/hustle_mania.md".into(),
+                date: "2022-24-12".into(),
+                thumbnail_path: "".into(),
+                // lmao you thought
+                public: false,
+                tags: None,
+            },
+            Post {
+                author: "Shrey".into(),
+                title: "\"Graduating\"".into(),
+                subtitle: "I've finished my degree, but it doesn't feel special".into(),
+                slug: "graduating".into(),
+                content: "./posts/graduating.md".into(),
+                date: "2022-24-12".into(),
+                thumbnail_path: "".into(),
+                public: false,
+                tags: None,
+            },
         ]
     });
 

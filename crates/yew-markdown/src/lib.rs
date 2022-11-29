@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 /// Original author of this code is [Nathan Ringo](https://github.com/remexre)
 /// Source: https://github.com/acmumn/mentoring/blob/master/web-client/src/view/markdown.rs
 use pulldown_cmark::{Alignment, CodeBlockKind, Event, HeadingLevel, Options, Parser, Tag};
@@ -35,8 +37,7 @@ pub fn render_markdown(src: &str) -> Html {
         }};
     }
 
-    let mut options = Options::empty();
-    options.insert(Options::ENABLE_TABLES);
+    let options = Options::all();
 
     for ev in Parser::new_ext(src, options) {
         match ev {
@@ -98,9 +99,27 @@ pub fn render_markdown(src: &str) -> Html {
                 code.add_child(child);
                 add_child!(code.into())
             }
+            Event::Html(_) => log::error!("HTML not supported"),
+            Event::FootnoteReference(inner) => {
+                let mut a = VTag::new("a");
+                // add link to footnote-[num]
+                a.add_attribute("href", format!("#footnote-{}", inner));
+
+                // set the id to footnote-ref-[num], so the footnote itself
+                // can link back to this reference
+                a.add_attribute("id", format!("footnote-ref-{}", inner));
+
+                // styles
+                a.add_attribute("class", "hover:underline");
+
+                a.add_child(VText::new(inner.to_string()).into());
+                let mut sup = VTag::new("sup");
+                sup.add_child(a.into());
+                add_child!(sup.into());
+            }
+            Event::TaskListMarker(_) => log::error!("TaskListMarker not supported"),
             // HMMM how tf we gonna do html huh
             // Event::Html(text) => add_child!(VText::new(text).into()),
-            _ => println!("Unknown event: {:#?}", ev),
         }
     }
 
@@ -132,7 +151,7 @@ fn make_tag(t: Tag) -> VTag {
         }
         Tag::BlockQuote => {
             let mut el = VTag::new("blockquote");
-            el.add_attribute("class", "blockquote");
+            el.add_attribute("class", "p-4 my-4 bg-gray-50 italic border-l-4 border-gray-300 dark:border-gray-500 dark:bg-gray-800 dark:text-white");
             el
         }
         Tag::CodeBlock(code_block_kind) => {
@@ -187,7 +206,7 @@ fn make_tag(t: Tag) -> VTag {
         }
         Tag::Strong => {
             let mut el = VTag::new("span");
-            el.add_attribute("class", "font-weight-bold");
+            el.add_attribute("class", "font-bold");
             el
         }
         Tag::Link(_link_type, ref href, ref title) => {
@@ -208,12 +227,28 @@ fn make_tag(t: Tag) -> VTag {
             }
             el
         }
-        Tag::FootnoteDefinition(ref _footnote_id) => VTag::new("span"), // Footnotes are not
+        Tag::FootnoteDefinition(ref footnote_id) => {
+            // display the footnote id as a link to the original reference
+            // and then the footnote contents
+            let mut el = VTag::new("div");
+            el.add_attribute("id", format!("footnote-{}", footnote_id));
+            el.add_attribute("class", "my-3");
+
+            let mut a = VTag::new("a");
+            a.add_attribute("href", format!("#footnote-ref-{}", footnote_id));
+            a.add_attribute("class", "hover:underline");
+            a.add_child(VText::new(footnote_id.to_string()).into());
+            let mut sup = VTag::new("sup");
+            sup.add_child(a.into());
+            el.add_child(sup.into());
+
+            el
+        }
         // rendered as anything
         // special
         Tag::Strikethrough => {
             let mut el = VTag::new("span");
-            el.add_attribute("class", "text-decoration-strikethrough");
+            el.add_attribute("class", "line-through");
             el
         }
     }

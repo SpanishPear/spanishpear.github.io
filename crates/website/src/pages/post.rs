@@ -38,7 +38,7 @@ pub fn post(props: &PostProps) -> Html {
     }
     html! {
         <p class="flex justify-center content-center py-4 bg-[#D682F4]">
-            <div class="max-w-4xl max-w-[100vw] p-9">
+            <div class="md:max-w-4xl max-w-[100vw] p-9">
             {
                 render_markdown(
                     (*markdown)

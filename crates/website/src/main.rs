@@ -120,17 +120,6 @@ fn app() -> Html {
         vec![
             Post {
                 author: "Shrey".into(),
-                title: "A prettier terminal".into(),
-                subtitle: "maybe you'll actually enjoy using it".into(),
-                slug: "prettier-terminal".into(),
-                content: "./posts/making_a_prettier_terminal.md".into(),
-                date: "2022-05-07".into(),
-                thumbnail_path: "/assets/pretty-terminal.png".into(),
-                public: true,
-                tags: Some(Tags::new(vec!["tooling"])),
-            },
-            Post {
-                author: "Shrey".into(),
                 title: "\"Graduating\"".into(),
                 subtitle: "I've finished my degree, but it doesn't feel special".into(),
                 slug: "graduating".into(),
@@ -139,6 +128,17 @@ fn app() -> Html {
                 thumbnail_path: "".into(),
                 public: true,
                 tags: None,
+            },
+            Post {
+                author: "Shrey".into(),
+                title: "A prettier terminal".into(),
+                subtitle: "maybe you'll actually enjoy using it".into(),
+                slug: "prettier-terminal".into(),
+                content: "./posts/making_a_prettier_terminal.md".into(),
+                date: "2022-05-07".into(),
+                thumbnail_path: "/assets/pretty-terminal.png".into(),
+                public: true,
+                tags: Some(Tags::new(vec!["tooling"])),
             },
             Post {
                 author: "Shrey".into(),

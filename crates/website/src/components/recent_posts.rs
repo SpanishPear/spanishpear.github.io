@@ -16,7 +16,7 @@ pub fn recent_posts() -> Html {
                 {
                     posts.iter().enumerate().map(|(i, post)| {
                         html! {
-                            if i < 2 {
+                            if i < 1 {
                                 <PostCard post={post.clone()} />
                             } else {
                                 <></>

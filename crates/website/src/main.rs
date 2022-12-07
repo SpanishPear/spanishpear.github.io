@@ -131,6 +131,17 @@ fn app() -> Html {
             },
             Post {
                 author: "Shrey".into(),
+                title: "\"Graduating\"".into(),
+                subtitle: "I've finished my degree, but it doesn't feel special".into(),
+                slug: "graduating".into(),
+                content: "./posts/graduating.md".into(),
+                date: "2022-24-12".into(),
+                thumbnail_path: "".into(),
+                public: true,
+                tags: None,
+            },
+            Post {
+                author: "Shrey".into(),
                 title: "Smart Pointers".into(),
                 subtitle: "A deep dive into the Rust smart pointer types".into(),
                 slug: "smart-pointers".into(),
@@ -150,17 +161,6 @@ fn app() -> Html {
                 thumbnail_path: "".into(),
                 // lmao you thought
                 public: false,
-                tags: None,
-            },
-            Post {
-                author: "Shrey".into(),
-                title: "\"Graduating\"".into(),
-                subtitle: "I've finished my degree, but it doesn't feel special".into(),
-                slug: "graduating".into(),
-                content: "./posts/graduating.md".into(),
-                date: "2022-24-12".into(),
-                thumbnail_path: "".into(),
-                public: true,
                 tags: None,
             },
         ]

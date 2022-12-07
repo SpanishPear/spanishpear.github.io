@@ -160,7 +160,7 @@ fn app() -> Html {
                 content: "./posts/graduating.md".into(),
                 date: "2022-24-12".into(),
                 thumbnail_path: "".into(),
-                public: false,
+                public: true,
                 tags: None,
             },
         ]

@@ -1,17 +1,12 @@
 # "Graduating"
 
-**note**:
- - this content is in early access, and accessible by link only, or by stalking
- my github repo.
-
-
-&nbsp;
 
 As of a few days ago, I have submitted my last 
-assessment at the University of New South Wales (UNSW).
-My marks indicate I have passed my final (and only one this term)
-course (Professional Issues and Ethics in Information Technology), and
-given I have enough to pass (I am **very** ethical), I technically
+assessment at the University of New South Wales (UNSW)!
+
+&nbsp;
+Fortunately my marks indicate I have passed my final course[^0] , and
+given I have enough to pass, I technically
 have finished my degree!
 
 
@@ -101,6 +96,9 @@ Thanks for reading :)
 &nbsp;
 
 ## ---- Footnotes ----
+[^0]: the UNSW special 
+of slapping ethics on to the end of your degree, this graduate can fit so much ethical decisions in it.
+
 [^1]: Hats are sort of like roles, coming from the idiom "too many hats" - 
 To try to fill more roles at once than is realistically possible
 

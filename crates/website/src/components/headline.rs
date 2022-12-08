@@ -7,7 +7,6 @@ pub fn headline() -> Html {
     let heading_classes = vec![
         "text-5xl",
         "font-bold",
-        "leading-7",
         "dark:text-white",
         "text-gray-900",
         "sm:text-5xl",

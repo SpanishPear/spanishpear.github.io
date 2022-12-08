@@ -5,7 +5,14 @@ use yew::prelude::*;
 
 #[function_component(RecentPosts)]
 pub fn recent_posts() -> Html {
-    let inner_container_styles = vec!["flex", "w-7/12", "flex-col", "items-center", "pb-6"];
+    let inner_container_styles = vec![
+        "flex",
+        "sm:w-full",
+        "lg:w-7/12",
+        "flex-col",
+        "items-center",
+        "pb-6",
+    ];
     let posts = use_context::<Vec<Post>>().expect("no posts found");
     html! {
         <div class="p-12 mt-16 flex flex-col items-center">

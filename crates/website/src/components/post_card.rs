@@ -12,8 +12,8 @@ pub struct PostCardProps {
 pub fn post_card(props: &PostCardProps) -> Html {
     html! {
         <Link<Route> to={Route::BlogPost { id: props.post.slug.to_string() }}>
-            <div class="w-full transform transition duration-100 hover:scale-110 hover:cursor-pointer m-1 mb-5 max-w-xl bg-white rounded-lg border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <img class="rounded-t-lg" width={570} height={170} src={props.post.thumbnail_path.clone()} alt="" />
+            <div class="w-full transform transition duration-100 hover:scale-110 hover:cursor-pointer m-1 mb-5 max-w-xl bg-white rounded-lg dark:bg-gray-800 ">
+                <img class="rounded-t-lg full max-h-[170px]" width={570} height={170} src={props.post.thumbnail_path.clone()} alt="" />
                 <div class="p-5">
                     <Link<Route> to={Route::BlogPost { id: props.post.slug.to_string() }}>
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

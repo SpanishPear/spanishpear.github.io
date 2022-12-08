@@ -56,6 +56,7 @@ pub enum TagMembers {
     Rust,
     Tooling,
     WASM,
+    Life,
 }
 
 impl From<&str> for TagMembers {
@@ -64,6 +65,7 @@ impl From<&str> for TagMembers {
             "rust" => Self::Rust,
             "tooling" => Self::Tooling,
             "wasm" => Self::WASM,
+            "life" => Self::Life,
             _ => panic!("Unknown tag: {}", tag),
         }
     }
@@ -75,6 +77,7 @@ impl ToString for TagMembers {
             TagMembers::Rust => "Rust".to_string(),
             TagMembers::Tooling => "Tooling".to_string(),
             TagMembers::WASM => "WASM".to_string(),
+            TagMembers::Life => "Life".to_string(),
         }
     }
 }

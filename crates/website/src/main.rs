@@ -120,17 +120,6 @@ fn app() -> Html {
         vec![
             Post {
                 author: "Shrey".into(),
-                title: "\"Graduating\"".into(),
-                subtitle: "I've finished my degree, but it doesn't feel special".into(),
-                slug: "graduating".into(),
-                content: "./posts/graduating.md".into(),
-                date: "2022-24-12".into(),
-                thumbnail_path: "".into(),
-                public: true,
-                tags: None,
-            },
-            Post {
-                author: "Shrey".into(),
                 title: "A prettier terminal".into(),
                 subtitle: "maybe you'll actually enjoy using it".into(),
                 slug: "prettier-terminal".into(),
@@ -162,6 +151,18 @@ fn app() -> Html {
                 // lmao you thought
                 public: false,
                 tags: None,
+            },
+            Post {
+                author: "Shrey".into(),
+                title: "\"Graduating\"".into(),
+                subtitle: "I've finished my degree, but it doesn't feel special".into(),
+                slug: "graduating".into(),
+                content: "./posts/graduating.md".into(),
+                date: "2022-24-12".into(),
+                thumbnail_path:
+                    "https://cdn.pixabay.com/photo/2016/03/19/04/40/cap-1266204__340.png".into(),
+                public: true,
+                tags: Some(Tags::new(vec!["life"])),
             },
         ]
     });

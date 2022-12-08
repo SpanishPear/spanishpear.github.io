@@ -7,22 +7,17 @@ use yew::prelude::*;
 pub fn recent_posts() -> Html {
     let inner_container_styles = vec!["flex", "w-7/12", "flex-col", "items-center", "pb-6"];
     let posts = use_context::<Vec<Post>>().expect("no posts found");
-
     html! {
         <div class="p-12 mt-16 flex flex-col items-center">
             <div class={classes!(inner_container_styles)}>
                 <RecentPostHeader />
                 <div class="flex flex-row w-full justify-center lg:max-w-[75%] sm:max-w-full">
                 {
-                    posts.iter().enumerate().map(|(i, post)| {
-                        html! {
-                            if i < 1 {
-                                <PostCard post={post.clone()} />
-                            } else {
-                                <></>
-                            }
+                    posts.iter().filter(|post| post.public).last().map(|post| {
+                        html!{
+                            <PostCard post={post.clone()} />
                         }
-                    }).collect::<Html>()
+                    }).unwrap_or_else(|| html!{})
                 }
                 </div>
             </div>

@@ -50,7 +50,18 @@ but this time, as UNSW Staff:
   - UNSW Global course administrator. 
   - Other miscellaneous cse staff roles.
 
+&nbsp;
 
+During parts of this time I was very vocal about
+changes that I wanted to see in order to benefit students,
+and casual staff. Most of the time this was a function 
+of my roles as staff/student reps, and unfortunately 
+I did butt heads with quite a few people as a result.
+Often this was met with good discourse in response, but 
+other times it genuinely annoyed people.
+I do apologise for the times I have been too strongheaded, sorry!
+Those who know me can attest that I've gotten better at this over
+the years and am continuing to do so.
 
 &nbsp;
 

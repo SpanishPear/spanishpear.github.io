@@ -75,7 +75,7 @@ pub fn navbar() -> Html {
                         }
                     }).collect::<Html>()
                 }
-                <a href="javascript:;" title="whats this?" class="hover:cursor-pointer hover:border-purple-300 border-transparent border-2 hover:border-current rounded">
+                <a href="javascript:;" title="whats this?" class="hover:cursor-pointer border-transparent border-2  rounded">
                     <img loading="lazy" src="/assets/sparkles_icon.svg" class="hover:cursor-pointer h-2 hover:invert sm:h-12 " width="32" height="20" alt="sparkles" />
                 </a>
               </ul>

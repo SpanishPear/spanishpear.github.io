@@ -20,7 +20,7 @@ jobs:
         toolchain: stable
         target: wasm32-unknown-unknown
     - name: trunk-action
-      uses: jetli/trunk-action@v0.1.0
+      uses: jetli/trunk-action@v0.2.0
 
     # build css and rust
     - name: run trunk

@@ -21,16 +21,16 @@ story of "doing too much".
 &nbsp;
 
 Over the last four years worn many "hats"[^1] at UNSW, arguably too many[^2].
-I've managed to volunteer in the following positions: 
+I've managed to volunteer in the following positions[^10]: 
   - Arc Wellness.
-  - Organise social events for UNSW CSESoc[^3] (csesoc) (2019 - 2020).
-  - Organise social events for UNSW Co-op Society[^4] (co-op soc) (2019 - 2020).
-  - Executive Secretary for co-op soc (2020 - 2021).
-  - Organise social events for my church on campus (2020 - 2021).
-  - Focus on CSE Student wellbeing as the student network director (2020 - 2021).
-  - Lead a team of ~100 as Co-President and Grievance Officer of csesoc[^5] (2021 - 2022).
-  - Support the projects and development of csesoc as development lead (2022 - pres).
-  - Represent the cse student body as student representitive (2020 - pres).  
+  - Organise social events for UNSW CSESoc[^3] (csesoc).
+  - Organise social events for UNSW Co-op Society[^4] (co-op soc).
+  - Executive Secretary for co-op soc.
+  - Organise social events for my church on campus.
+  - Focus on CSE Student wellbeing as the student network director .
+  - Lead a team of ~100 as Co-President and Grievance Officer of csesoc[^5].
+  - Support the projects and development of csesoc as development lead.
+  - Represent the cse student body as student representitive.  
   - Other things I've forgotten (soz).
 
 
@@ -39,13 +39,13 @@ I've managed to volunteer in the following positions:
 That's,,, a lot. And definitely too much. However, early in my degree, my hubris knew no bounds,
 I was constantly looking for new opportunties to help shape the student experience
 but this time, as UNSW Staff: 
-  - UNSW Co-op Ambassador (2020 - 2022).
-  - COMP1511 lab assistant (2020 - 2021).  
-  - COMP1511 tutor (2021 - 2022).
-  - COMP1511 course administrator (2021 - 2022). 
+  - UNSW Co-op Ambassador.
+  - COMP1511 lab assistant.  
+  - COMP1511 tutor.
+  - COMP1511 course administrator. 
   - COMP1521 developer (mipsy web [^6] shennanigans).
   - Proposing, Writing and Teaching a new course, COMP6991 (with insou22, tfpk).
-  - Casual Academic Representative (2021 - 2022).
+  - Casual Academic Representative.
   - UNSW Global Lab assistant. 
   - UNSW Global course administrator. 
   - Other miscellaneous cse staff roles.
@@ -130,3 +130,5 @@ Sorry to people who called it out early, and I ignored.
 
 [^9]: idk, get a hobby like a normal person
 
+[^10]: an earlier draft of this post didnt have an explicit list but I was told
+that being specific woudl get my point across better, this isn't a flex T_T

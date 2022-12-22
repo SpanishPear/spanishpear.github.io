@@ -237,8 +237,8 @@ fn make_tag(t: Tag) -> VTag {
             let mut a = VTag::new("a");
             a.add_attribute("href", format!("#footnote-ref-{}", footnote_id));
             a.add_attribute("class", "hover:underline");
-            a.add_child(VText::new(footnote_id.to_string()).into());
-            let mut sup = VTag::new("sup");
+            a.add_child(VText::new(format!("⬑ {}: ", footnote_id)).into());
+            let mut sup = VTag::new("strong");
             sup.add_child(a.into());
             el.add_child(sup.into());
 

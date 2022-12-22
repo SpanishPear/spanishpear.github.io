@@ -107,28 +107,28 @@ Thanks for reading :)
 &nbsp;
 
 ## ---- Footnotes ----
-[^0]: the UNSW special 
+[^0] The UNSW special 
 of slapping ethics on to the end of your degree, this graduate can fit so much ethical decisions in it.
 
-[^1]: Hats are sort of like roles, coming from the idiom "too many hats" - 
+[^1] Hats are sort of like roles, coming from the idiom "too many hats" - 
 To try to fill more roles at once than is realistically possible
 
-[^2]: _**soooorry**_ 
+[^2] _soooorry_ 
 
-[^3]: You can learn more about CSESoc [here](https://csesoc.unsw.edu.au/) 
+[^3] You can learn more about CSESoc [here](https://csesoc.unsw.edu.au/) 
 
-[^4]: You can learn more about Co-op Soc [here](https://coopsoc.com.au/) 
+[^4] You can learn more about Co-op Soc [here](https://coopsoc.com.au/) 
 
-[^5]: something something will make a blog post on this soon :tm:
+[^5] something something will make a blog post on this soon :tm:
 
-[^6]: something something will make a blog post on this soon :tm:
+[^6] something something will make a blog post on this soon :tm:
 
-[^7]: While this isn't a post about how I burnt out, you can sorta see how it happenned hey..
+[^7] While this isn't a post about how I burnt out, you can sorta see how it happenned hey..
 Sorry to people who called it out early, and I ignored. 
 
-[^8]: iykyk
+[^8] iykyk
 
-[^9]: idk, get a hobby like a normal person
+[^9] idk, get a hobby like a normal person
 
-[^10]: an earlier draft of this post didnt have an explicit list but I was told
+[^10] an earlier draft of this post didnt have an explicit list but I was told
 that being specific woudl get my point across better, this isn't a flex T_T

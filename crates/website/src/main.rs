@@ -155,7 +155,7 @@ fn app() -> Html {
             Post {
                 author: "Shrey".into(),
                 title: "\"Graduating\"".into(),
-                subtitle: "I've finished my degree, but it doesn't feel special".into(),
+                subtitle: "I've finished my degree, so why doesn't it feel special?".into(),
                 slug: "graduating".into(),
                 content: "./posts/graduating.md".into(),
                 date: "2022-24-12".into(),

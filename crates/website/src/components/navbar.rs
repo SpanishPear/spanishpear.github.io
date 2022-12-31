@@ -30,10 +30,6 @@ pub fn navbar() -> Html {
             text: "Home",
         },
         NavItem {
-            link: Route::About,
-            text: "About",
-        },
-        NavItem {
             link: Route::Blog,
             text: "Blog",
         },

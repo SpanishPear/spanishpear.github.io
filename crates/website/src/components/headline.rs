@@ -1,7 +1,5 @@
 use yew::prelude::*;
 
-use crate::{components::link_button::LinkButton, Route};
-
 #[function_component(Headline)]
 pub fn headline() -> Html {
     let heading_classes = vec![
@@ -74,11 +72,6 @@ pub fn headline() -> Html {
                     {"UNSW School of Computer Science."}
                 </a>
             </p>
-
-            <LinkButton
-                to={ Route::About }
-                label={"Learn more"}
-            />
             </div>
         </div>
     }

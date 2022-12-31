@@ -28,8 +28,6 @@ pub struct Theme {
 pub enum Route {
     #[at("/")]
     Home,
-    #[at("/about")]
-    About,
     #[at("/contact")]
     Contact,
     #[at("/blog")]
@@ -58,7 +56,6 @@ fn switch(route: &Route, posts: UseStateHandle<Vec<Post>>) -> Html {
             </Background>
         },
         Route::NotFound => html! { <pages::not_found::NotFound /> },
-        Route::About => html! { <pages::construction::Construction /> },
         Route::Contact => html! { <pages::construction::Construction /> },
         Route::Blog => html! { <pages::all_posts::PostPage /> },
         Route::BlogPost { id } => {

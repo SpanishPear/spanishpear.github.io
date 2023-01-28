@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 /// Original author of this code is [Nathan Ringo](https://github.com/remexre)
 /// Source: https://github.com/acmumn/mentoring/blob/master/web-client/src/view/markdown.rs
 use pulldown_cmark::{Alignment, CodeBlockKind, Event, HeadingLevel, Options, Parser, Tag};
@@ -103,11 +101,11 @@ pub fn render_markdown(src: &str) -> Html {
             Event::FootnoteReference(inner) => {
                 let mut a = VTag::new("a");
                 // add link to footnote-[num]
-                a.add_attribute("href", format!("#footnote-{}", inner));
+                a.add_attribute("href", format!("#footnote-{inner}"));
 
                 // set the id to footnote-ref-[num], so the footnote itself
                 // can link back to this reference
-                a.add_attribute("id", format!("footnote-ref-{}", inner));
+                a.add_attribute("id", format!("footnote-ref-{inner}"));
 
                 // styles
                 a.add_attribute("class", "hover:underline");
@@ -231,13 +229,13 @@ fn make_tag(t: Tag) -> VTag {
             // display the footnote id as a link to the original reference
             // and then the footnote contents
             let mut el = VTag::new("div");
-            el.add_attribute("id", format!("footnote-{}", footnote_id));
+            el.add_attribute("id", format!("footnote-{footnote_id}"));
             el.add_attribute("class", "my-3");
 
             let mut a = VTag::new("a");
-            a.add_attribute("href", format!("#footnote-ref-{}", footnote_id));
+            a.add_attribute("href", format!("#footnote-ref-{footnote_id}"));
             a.add_attribute("class", "hover:underline");
-            a.add_child(VText::new(format!("⬑ {}: ", footnote_id)).into());
+            a.add_child(VText::new(format!("⬑ {footnote_id}: ")).into());
             let mut sup = VTag::new("strong");
             sup.add_child(a.into());
             el.add_child(sup.into());

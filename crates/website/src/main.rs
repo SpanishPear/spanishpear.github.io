@@ -45,10 +45,10 @@ pub enum Route {
 
 fn main() {
     wasm_logger::init(wasm_logger::Config::default());
-    yew::start_app::<App>();
+    yew::Renderer::<App>::new().render();
 }
 
-fn switch(route: &Route, posts: UseStateHandle<Vec<Post>>) -> Html {
+fn switch(route: Route, posts: UseStateHandle<Vec<Post>>) -> Html {
     match route {
         Route::Home => html! {
             <Background>
@@ -89,9 +89,12 @@ fn scroll_to_top() -> Html {
     // when the route changes
     let location = use_location();
     let pathname = match location {
-        Some(AnyLocation::Browser(location)) => location.pathname(),
+        Some(location) => {
+            location.path().to_string()
+        },
         None => "".to_string(),
     };
+
     {
         let pathname2 = pathname.clone();
         use_effect_with_deps(
@@ -170,7 +173,7 @@ fn app() -> Html {
                 <BrowserRouter>
                     <Navbar />
                     <ScrollToTop />
-                    <Switch<Route> render={Switch::render(move |route| switch(route, posts.clone()))} />
+                    <Switch<Route> render={move |route| switch(route, posts.clone())} />
                 </BrowserRouter>
             </ContextProvider<Theme>>
         </ContextProvider<Vec<Post>>>
